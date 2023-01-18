@@ -13,11 +13,13 @@ public class Move : MonoBehaviour
 
     public float walkSpeed = 7.0f;
 
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
 
         Screen.SetResolution(1920, 1080, false);
+
     }
 
     void Update()
@@ -33,6 +35,8 @@ public class Move : MonoBehaviour
             walkSpeed = walkSpeed;
         if (Input.GetKeyUp(KeyCode.LeftShift))
             walkSpeed = 7;
+
+        
     }
 
     private void FixedUpdate()
