@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Player : MonoBehaviour
 
     public int killScore = 0;
 
-    public int ammoCount = 0;
+    public int ammoCount;
 
     public bool hasGun;
 
@@ -17,7 +18,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        ammoCount = 0;
+
         hasGun = false;
+
+        healthBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
 
         healthBar.SetHealth(curHP);
     }
@@ -47,7 +52,15 @@ public class Player : MonoBehaviour
                 Debug.Log(curHP); 
             }
         }
+        
+        if(col.gameObject.tag == "Ammo")
+        {
+            ammoCount += 3;
 
+            Destroy(col.gameObject);
+            Debug.Log(ammoCount);
+        }
+        
         if(col.gameObject.tag == "Gun")
         {
             hasGun = true;
