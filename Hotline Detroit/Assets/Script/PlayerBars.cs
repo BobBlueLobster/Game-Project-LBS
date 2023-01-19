@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,6 @@ public class PlayerBars : MonoBehaviour
     {
         if(playerScript.killScore == 0)
         {
-            Debug.Log("HOE");
             m_Image.sprite = face1;
         }
         if(playerScript.killScore == 4)
@@ -46,8 +46,7 @@ public class PlayerBars : MonoBehaviour
         }
         if(playerScript.killScore == 10)
         {
-            m_image.sprite = face3;
+            m_Image.sprite = face3;
         }
-        
     }
 }
