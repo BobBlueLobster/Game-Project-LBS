@@ -12,21 +12,28 @@ public class Gun : MonoBehaviour
 
     private float shootTimer;
 
+    public Player playerScript;
+
     void Start()
     {
         shootTimer = 0.5f;
+
+        playerScript = GameObject.Find("Sprite").GetComponent<Player>();
     }
 
     void Update()
     {
         shootTimer -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0))
+        if (playerScript.hasGun)
         {
-            if (shootTimer < 0)
+            if (Input.GetMouseButtonDown(0))
             {
-                Fire();
-                shootTimer = 0.4f;
+                if (shootTimer < 0)
+                {
+                    Fire();
+                    shootTimer = 0.4f;
+                }
             }
         }
     }
