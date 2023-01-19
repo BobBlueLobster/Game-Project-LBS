@@ -29,11 +29,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(curHP == 0)
-        {
-            //gameover
-        }
+        healthBar.SetHealth(curHP);
     }
+
+    
 
     void OnTriggerEnter2D(Collider2D col)
     {

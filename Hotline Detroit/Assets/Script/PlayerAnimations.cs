@@ -27,6 +27,12 @@ public class PlayerAnimations : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
+        if(playerScript.curHP <= 0)
+        {
+            animator.SetBool("Dead", true);
+            animator.SetFloat("Speed", 0);
+        }
+
         if (!playerScript.hasGun)
         {   //Unarmed
             if (horizontal == 0 || vertical == 0)
@@ -59,15 +65,17 @@ public class PlayerAnimations : MonoBehaviour
                 animator.SetFloat("Speed", 2);
             }
         }
-
-        if(shootTimer < 0)
+        if(playerScript.ammoCount > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (shootTimer < 0)
             {
-                animator.SetBool("Firing", true);
-                Invoke("ShootAnim", 0.1f);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    animator.SetBool("Firing", true);
+                    Invoke("ShootAnim", 0.1f);
 
-                shootTimer = 0.4f;
+                    shootTimer = 0.4f;
+                }
             }
         }
     }

@@ -27,12 +27,16 @@ public class Gun : MonoBehaviour
 
         if (playerScript.hasGun)
         {
-            if (Input.GetMouseButtonDown(0))
+            if(playerScript.ammoCount > 0)
             {
-                if (shootTimer < 0)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    Fire();
-                    shootTimer = 0.4f;
+                    if (shootTimer < 0)
+                    {
+                        Fire();
+                        shootTimer = 0.4f;
+                        playerScript.ammoCount--;
+                    }
                 }
             }
         }
