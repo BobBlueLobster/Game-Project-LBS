@@ -8,6 +8,7 @@ public class FieldOfVision : MonoBehaviour
     [Range(1, 360)]public float angle = 45;
     public LayerMask targetLayer;
     public LayerMask obstructionLayer;
+    public Collider2D[] rangeCheck;
 
     public GameObject playerRef;
 
@@ -15,23 +16,29 @@ public class FieldOfVision : MonoBehaviour
     void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(FOVCheck());
+        //StartCoroutine(FOVCheck());
     }
 
-    private IEnumerator FOVCheck()
+    //in case of need to go back, remove fixed update and uncomment StartCoroutine and IEnumerator
+    private void FixedUpdate()
     {
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
-
-        while (true)
-        {
-            yield return wait;
-            FOV();
-        }
+        FOV();
     }
+
+    //private IEnumerator FOVCheck()
+    //{
+    //    WaitForSeconds wait = new WaitForSeconds(0.2f);
+
+    //    while (true)
+    //    {
+    //        yield return wait;
+    //        FOV();
+    //    }
+    //}
 
     private void FOV()
     {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
+        rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
 
         if (rangeCheck.Length > 0)
         {
@@ -51,7 +58,7 @@ public class FieldOfVision : MonoBehaviour
                 CanSeePlayer = false;
         }
         else if (CanSeePlayer)
-            CanSeePlayer = true;
+            CanSeePlayer = false;
     }
 
     private void OnDrawGizmos()
