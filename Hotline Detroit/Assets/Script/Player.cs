@@ -60,7 +60,6 @@ public class Player : MonoBehaviour
 
         if(curHP == 0)
         {
-            collider1.enabled = !collider1.enabled;
         }
     }
 
@@ -76,6 +75,7 @@ public class Player : MonoBehaviour
                 audioSource.PlayOneShot(dying, 0.7f);
 
                 gunScript.enabled = false;
+                collider1.enabled = !collider1.enabled;
 
                 moveScript.body.velocity = new Vector2(0, 0);
                 moveScript.enabled = false;
