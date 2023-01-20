@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public int maxHP = 10;
     public int curHP = 4;
 
+    public int maxHumanity = 100;
+
     public int killScore = 0;
 
     public int ammoCount;
@@ -16,6 +18,8 @@ public class Player : MonoBehaviour
 
     public PlayerBars healthBar;
 
+    public PlayerBars humanityBar;
+
     void Start()
     {
         ammoCount = 0;
@@ -23,15 +27,26 @@ public class Player : MonoBehaviour
         hasGun = false;
 
         healthBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
+        humanityBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
 
         healthBar.SetHealth(curHP);
+
+        humanityBar.SetHumanity(maxHumanity);
     }
 
     void Update()
     {
-        if(curHP == 0)
+        healthBar.SetHealth(curHP);
+
+        humanityBar.SetHumanity(maxHumanity);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Bullet")
         {
-            //gameover
+            curHP--;
+            Destroy(col.gameObject);
         }
     }
 

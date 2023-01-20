@@ -10,11 +10,14 @@ public class PlayerAnimations : MonoBehaviour
     float vertical;
 
     public Player playerScript;
+    public Gun gunScript;
 
     private float shootTimer = 0.1f;
 
     void Start()
     {
+        gunScript = GameObject.Find("Gun").GetComponent<Gun>();
+
         animator = GetComponent<Animator>();
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
@@ -26,6 +29,12 @@ public class PlayerAnimations : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        if(playerScript.curHP <= 0)
+        {
+            animator.SetBool("Dead", true);
+            animator.SetFloat("Speed", 0);
+        }
 
         if (!playerScript.hasGun)
         {   //Unarmed
@@ -59,23 +68,24 @@ public class PlayerAnimations : MonoBehaviour
                 animator.SetFloat("Speed", 2);
             }
         }
-
-        if(shootTimer < 0)
+        if(gunScript.magazineCur > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (shootTimer < 0)
             {
-                animator.SetBool("Firing", true);
-                Invoke("ShootAnim", 0.1f);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    animator.SetBool("Firing", true);
+                    Invoke("ShootAnim", 0.1f);
 
-                shootTimer = 0.4f;
+                    shootTimer = 0.4f;
+                }
             }
         }
     }
 
     void ShootAnim()
     {
-        
         animator.SetBool("Firing", false);
-        
+        //animator.SetFloat("Speed", 0.1f);
     }
 }
