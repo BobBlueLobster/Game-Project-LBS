@@ -1,32 +1,52 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     public int maxHP = 10;
     public int curHP = 4;
 
+    public int maxHumanity = 100;
+
     public int killScore = 0;
 
-    public int ammoCount = 0;
+    public int ammoCount;
 
     public bool hasGun;
 
     public PlayerBars healthBar;
 
+    public PlayerBars humanityBar;
+
     void Start()
     {
+        ammoCount = 0;
+
         hasGun = false;
 
+        healthBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
+        humanityBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
+
         healthBar.SetHealth(curHP);
+
+        humanityBar.SetHumanity(maxHumanity);
     }
 
     void Update()
     {
-        if(curHP == 0)
+        healthBar.SetHealth(curHP);
+
+        humanityBar.SetHumanity(maxHumanity);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Bullet")
         {
-            //gameover
+            curHP--;
+            Destroy(col.gameObject);
         }
     }
 
@@ -47,7 +67,15 @@ public class Player : MonoBehaviour
                 Debug.Log(curHP); 
             }
         }
+        
+        if(col.gameObject.tag == "Ammo")
+        {
+            ammoCount += 3;
 
+            Destroy(col.gameObject);
+            Debug.Log(ammoCount);
+        }
+        
         if(col.gameObject.tag == "Gun")
         {
             hasGun = true;
