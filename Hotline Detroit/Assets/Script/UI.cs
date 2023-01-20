@@ -9,6 +9,10 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI ammo;
     public TextMeshProUGUI mag;
 
+    public Animator animator;
+
+    public TextMeshProUGUI dialogue1;
+
     public Player playerScript;
 
     public Gun gunScript;
@@ -27,6 +31,8 @@ public class UI : MonoBehaviour
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
         gunScript = GameObject.Find("Gun").GetComponent<Gun>();
+
+        animator = GetComponent<Animator>();
 
         ammo = GameObject.Find("AmmoCount").GetComponent<TextMeshProUGUI>();
         mag = GameObject.Find("Mag").GetComponent<TextMeshProUGUI>();
@@ -72,6 +78,17 @@ public class UI : MonoBehaviour
         {
             crack.gameObject.SetActive(false);
 
+        }
+
+        if(playerScript.killScore == 1)
+        {
+            dialogue1.SetText("[I didn't sign up for all this, I just want to revenge my loved one...]");
+            animator.SetBool("Dialogue1", true);
+        }
+        if(playerScript.killScore == 4)
+        {
+            dialogue1.SetText("[Shouldn't have gotten in my way, punk...]");
+            animator.SetBool("Dialogue2", true);
         }
     }
 }

@@ -56,7 +56,7 @@ public class PlayerBars : MonoBehaviour
         {
             m_Image.sprite = face2;
         }
-        if(playerScript.maxHumanity == 20)
+        if(playerScript.maxHumanity <= 0)
         {
             m_Image.sprite = face3;
         }
