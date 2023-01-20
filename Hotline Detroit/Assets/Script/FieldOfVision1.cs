@@ -37,7 +37,7 @@ namespace Pathfinding
 
         IEnumerator CoroutineExample()
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(5);
             Debug.Log("nyeow");
             if (CanSeePlayer == false)
             {
