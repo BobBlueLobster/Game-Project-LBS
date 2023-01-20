@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+//Check the original FieldOfVision if you need to revert back to the old code
 
 namespace Pathfinding
 {
@@ -19,7 +20,7 @@ namespace Pathfinding
         public AIDestinationSetter destSet;
         public Patrol patrol;
 
-        static public bool CanSeePlayer { get; private set; }
+        public bool CanSeePlayer { get; private set; }
         static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
         //canShoot bool for when enemy is chasing player

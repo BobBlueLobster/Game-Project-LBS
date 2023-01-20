@@ -4,6 +4,8 @@ using UnityEngine;
 using Pathfinding;
 
 
+//THIS SCRIPT IS A BACKUP, USE FielfOfVision1 INSTEAD!!!
+
 namespace Pathfinding
 {
     public class FieldOfVision : VersionedMonoBehaviour
@@ -28,6 +30,7 @@ namespace Pathfinding
         }
 
         //in case of need to go back, remove fixed update and uncomment StartCoroutine and IEnumerator
+        //THIS SCRIPT IS A BACKUP, USE FielfOfVision1 INSTEAD!!!
         private void FixedUpdate()
         {
 
@@ -49,8 +52,6 @@ namespace Pathfinding
             }
         }
 
-
-
         //private IEnumerator FOVCheck()
         //{
         //    WaitForSeconds wait = new WaitForSeconds(0.2f);
@@ -62,6 +63,7 @@ namespace Pathfinding
         //    }
         //}
 
+        //THIS SCRIPT IS A BACKUP, USE FielfOfVision1 INSTEAD!!!
         private void FOV()
         {
             rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
