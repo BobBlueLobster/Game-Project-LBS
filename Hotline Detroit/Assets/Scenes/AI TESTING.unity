@@ -5423,6 +5423,7 @@ GameObject:
   - component: {fileID: 1189813220}
   - component: {fileID: 1189813221}
   - component: {fileID: 1189813222}
+  - component: {fileID: 1189813223}
   m_Layer: 0
   m_Name: AI
   m_TagString: Untagged
@@ -5537,7 +5538,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189813214}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a4bf5a2ba26b3749bfb07fa18be2bd8, type: 3}
   m_Name: 
@@ -5572,6 +5573,31 @@ MonoBehaviour:
   - {fileID: 1312252002}
   - {fileID: 123402026}
   delay: 5
+--- !u!114 &1189813223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189813214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e824699a22c864eb340ea7670f234f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  radius: 6
+  angle: 90
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  obstructionLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  aipath: {fileID: 1189813215}
+  playerRef: {fileID: 384600551}
+  destSet: {fileID: 1189813220}
+  patrol: {fileID: 1189813222}
 --- !u!1 &1221618856
 GameObject:
   m_ObjectHideFlags: 0
