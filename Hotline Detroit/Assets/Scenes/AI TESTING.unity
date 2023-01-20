@@ -5572,7 +5572,7 @@ MonoBehaviour:
   targets:
   - {fileID: 1312252002}
   - {fileID: 123402026}
-  delay: 5
+  delay: 2
 --- !u!114 &1189813223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5598,6 +5598,7 @@ MonoBehaviour:
   playerRef: {fileID: 384600551}
   destSet: {fileID: 1189813220}
   patrol: {fileID: 1189813222}
+  startCou: 0
 --- !u!1 &1221618856
 GameObject:
   m_ObjectHideFlags: 0

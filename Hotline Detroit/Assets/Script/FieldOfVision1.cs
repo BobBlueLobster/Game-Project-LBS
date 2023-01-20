@@ -22,37 +22,22 @@ namespace Pathfinding
         static public bool CanSeePlayer { get; private set; }
         static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
-
-        public bool startCou;
-
-
-        //private IEnumerator coroutine;
-
+        //canShoot bool for when enemy is chasing player
+        private bool canShoot;
         
+
+        //Check the original FieldOfVision if you need to revert back to the old code
         void Start()
         {
             playerRef = GameObject.FindGameObjectWithTag("Player");
             //StartCoroutine(FOVCheck());
             FOVOn = true;
-
-            //// - After 0 seconds, prints "Starting 0.0"
-            //// - After 0 seconds, prints "Before WaitAndPrint Finishes 0.0"
-            //// - After 2 seconds, prints "WaitAndPrint 2.0"
-            //print("Starting " + Time.time);
-
-            //// Start function WaitAndPrint as a coroutine.
-
-            //coroutine = WaitAndPrint(3.0f);
-            //StartCoroutine(coroutine);
-
-            //Debug.Log("Before WaitAndPrint Finishes " + Time.time);
         }
 
         IEnumerator CoroutineExample()
         {
             yield return new WaitForSeconds(2);
             Debug.Log("nyeow");
-
             if (CanSeePlayer == false)
             {
                 Debug.Log("SWITCH");
@@ -66,28 +51,8 @@ namespace Pathfinding
             }
         }
 
-        private void ForgetIt()
-        {
-            FOVOn = true;
-            destSet.enabled = false;
-            patrol.enabled = true;
-            //aipath.canMove = true;
-            aipath.maxSpeed = 6;
-        }
-        //private IEnumerator WaitAndPrint(float waitTime)
-        //{
-        //    if (CanSeePlayer == false)
-        //    {
-        //        yield return new WaitForSeconds(waitTime);
-        //        Debug.Log("WaitAndPrint " + Time.time);
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
-
-        //in case of need to go back, remove fixed update and uncomment StartCoroutine and IEnumerator
+        //in case of need to go back, remove fixed update and uncomment StartCoroutineFOVCheck and IEnumeratorFOVCheck
+        //and let FOV be out of the if statement, just in the FixedUpdate
         private void FixedUpdate()
         {
             if (waitForSwitch == true)
@@ -113,10 +78,24 @@ namespace Pathfinding
             {
                 destSet.enabled = true;
                 patrol.enabled = false;
-                //aipath.canMove = false;
                 aipath.maxSpeed = 2;
                 waitForSwitch = true;
+                canShoot = true;
             }
+
+            if (canShoot == true)
+            {
+
+            }
+        }
+
+        private void ForgetIt()
+        {
+            FOVOn = true;
+            destSet.enabled = false;
+            patrol.enabled = true;
+            aipath.maxSpeed = 6;
+            canShoot = false;
         }
 
 
