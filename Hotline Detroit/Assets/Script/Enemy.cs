@@ -8,8 +8,13 @@ public class Enemy : MonoBehaviour
     
     private Animator animator;
 
+    float horizontal;
+    float vertical;
+
     public int enemyMaxHP = 5;
     public int enemyCurHP;
+
+    public Player playerScript;
 
     void Start()
     {
@@ -18,20 +23,37 @@ public class Enemy : MonoBehaviour
         collider = GetComponent<Collider2D>();
 
         animator = GetComponent<Animator>();
+
+        playerScript = GameObject.Find("Sprite").GetComponent<Player>();
     }
 
     void Update()
     {
-        
-        if(enemyCurHP == 0)
+
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+
+        if (enemyCurHP == 0)
         {
             animator.SetBool("Dead", true);
             animator.SetFloat("Speed", 0);
 
             collider.enabled = !collider.enabled;
             enemyCurHP = -1;
+
+            playerScript.maxHumanity -= 10;
         }
-        
+
+        if (horizontal == 0 || vertical == 0)
+        {
+            //idle anim
+            animator.SetFloat("Speed", 1);
+        }
+        if (horizontal != 0 || vertical != 0)
+        {
+            animator.SetFloat("Speed", 1.5f);
+        }
+
     }
     
     void OnCollisionEnter2D(Collision2D col)
