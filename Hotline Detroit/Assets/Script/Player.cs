@@ -18,13 +18,27 @@ public class Player : MonoBehaviour
 
     public PlayerBars healthBar;
 
+    public Gun gunScript;
+    public Move moveScript;
+    public PlayerRotate rotateScript;
+
     public PlayerBars humanityBar;
+
+    public AudioClip dying;
+    public AudioSource audioSource;
 
     void Start()
     {
         ammoCount = 0;
 
         hasGun = false;
+
+        audioSource = GetComponent<AudioSource>();
+
+        gunScript = GameObject.Find("Gun").GetComponent<Gun>();
+        moveScript = GameObject.Find("TestPlayer").GetComponent<Move>();
+        rotateScript = GameObject.Find("PlayerTransform").GetComponent<PlayerRotate>();
+
 
         healthBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
         humanityBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
@@ -47,6 +61,18 @@ public class Player : MonoBehaviour
         {
             curHP--;
             Destroy(col.gameObject);
+
+            if (curHP == 0)
+            {
+                audioSource.PlayOneShot(dying, 0.7f);
+
+                gunScript.enabled = false;
+
+                moveScript.body.velocity = new Vector2(0, 0);
+                moveScript.enabled = false;
+
+                rotateScript.enabled = false;
+            }
         }
     }
 
