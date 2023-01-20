@@ -90,5 +90,10 @@ public class UI : MonoBehaviour
             dialogue1.SetText("[Shouldn't have gotten in my way, punk...]");
             animator.SetBool("Dialogue2", true);
         }
+        if (playerScript.killScore == 10)
+        {
+            dialogue1.SetText("[I get this ache...and I thought it was for sex, but it's to tear everything to f*kcing pieces...]");
+            animator.SetBool("Dialogue3", true);
+        }
     }
 }
