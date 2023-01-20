@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Gun : MonoBehaviour
 {
     public Transform bulletSpawn;
@@ -16,9 +17,16 @@ public class Gun : MonoBehaviour
 
     private int magazineMax = 7;
     public int magazineCur;
+    private int magNeeded;
+
+    public AudioClip shooting;
+    public AudioClip reloading;
+    public AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         magazineCur = 0;
 
         shootTimer = 0.5f;
@@ -28,6 +36,8 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+        magNeeded = magazineMax - magazineCur;
+
         shootTimer -= Time.deltaTime;
 
         if (playerScript.hasGun)
@@ -38,6 +48,7 @@ public class Gun : MonoBehaviour
                 {
                     if (shootTimer < 0)
                     {
+                        audioSource.PlayOneShot(shooting, 0.5f);
                         Fire();
                         shootTimer = 0.4f;
                         magazineCur--;
@@ -45,10 +56,10 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-        if(Input.GetKey(KeyCode.R))
+        if(Input.GetKeyUp(KeyCode.R))
         {
-            //Reload();
-            Invoke("Reload", 2);
+            audioSource.PlayOneShot(reloading, 0.5f);
+            Invoke("Reload", 3);
         }
     }
 
@@ -64,6 +75,15 @@ public class Gun : MonoBehaviour
             magazineCur = playerScript.ammoCount;
             playerScript.ammoCount = 0;
         }
+        
+        /*
+        if(playerScript.ammoCount >= magNeeded)
+        {
+            magazineCur += magNeeded;
+            playerScript.ammoCount -= magNeeded;
+        }
+        */
+        
     }
 
     void Fire()

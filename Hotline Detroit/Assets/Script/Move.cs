@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Move : MonoBehaviour
 {
-    Rigidbody2D body;
+    public Rigidbody2D body;
 
     float horizontal;
     float vertical;
@@ -31,8 +30,7 @@ public class Move : MonoBehaviour
         {
             walkSpeed = sneakSpeed;
         }
-        else
-            walkSpeed = walkSpeed;
+
         if (Input.GetKeyUp(KeyCode.LeftShift))
             walkSpeed = 7;
 

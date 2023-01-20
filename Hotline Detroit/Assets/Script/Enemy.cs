@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public int enemyMaxHP = 5;
     public int enemyCurHP;
 
+    public bool hasEvilGun;
+
     public Player playerScript;
 
     void Start()
@@ -42,6 +44,7 @@ public class Enemy : MonoBehaviour
             enemyCurHP = -1;
 
             playerScript.maxHumanity -= 10;
+            Debug.Log(playerScript.maxHumanity);
         }
 
         if (horizontal == 0 || vertical == 0)

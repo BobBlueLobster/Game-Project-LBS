@@ -1,82 +1,118 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
-public class FieldOfVision : MonoBehaviour
+
+//THIS SCRIPT IS A BACKUP, USE FielfOfVision1 INSTEAD!!!
+
+namespace Pathfinding
 {
-    public float radius = 5;
-    [Range(1, 360)]public float angle = 45;
-    public LayerMask targetLayer;
-    public LayerMask obstructionLayer;
-
-    public GameObject playerRef;
-
-    public bool CanSeePlayer { get; private set; }
-    void Start()
+    public class FieldOfVision : VersionedMonoBehaviour
     {
-        playerRef = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(FOVCheck());
-    }
+        public float radius = 5;
+        [Range(1, 360)] public float angle = 45;
+        public LayerMask targetLayer;
+        public LayerMask obstructionLayer;
+        public Collider2D[] rangeCheck { get; private set; }
 
-    private IEnumerator FOVCheck()
-    {
-        WaitForSeconds wait = new WaitForSeconds(0.2f);
+        public AIPath aipath;
+        public GameObject playerRef;
+        public AIDestinationSetter destSet;
+        public Patrol patrol;
 
-        while (true)
+        static public bool CanSeePlayer { get; private set; }
+        static public bool FOVOn { get; private set; }
+        void Start()
         {
-            yield return wait;
-            FOV();
+            playerRef = GameObject.FindGameObjectWithTag("Player");
+            //StartCoroutine(FOVCheck());
         }
-    }
 
-    private void FOV()
-    {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
-
-        if (rangeCheck.Length > 0)
+        //in case of need to go back, remove fixed update and uncomment StartCoroutine and IEnumerator
+        //THIS SCRIPT IS A BACKUP, USE FielfOfVision1 INSTEAD!!!
+        private void FixedUpdate()
         {
-            Transform target = rangeCheck[0].transform;
-            Vector2 directionToTarget = (target.position - transform.position).normalized;
 
-            if (Vector2.Angle(transform.up, directionToTarget) < angle / 2)
+            FOV();
+
+            if (CanSeePlayer == true)
             {
-                float distanceToTarget = Vector2.Distance(transform.position, target.position);
+                destSet.enabled = true;
+                patrol.enabled = false;
+                //aipath.canMove = false;
+                aipath.maxSpeed = 2;
+            }
+            else
+            {
+                destSet.enabled = false;
+                patrol.enabled = true;
+                //aipath.canMove = true;
+                aipath.maxSpeed = 6;
+            }
+        }
 
-                if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
-                    CanSeePlayer = true;
+        //private IEnumerator FOVCheck()
+        //{
+        //    WaitForSeconds wait = new WaitForSeconds(0.2f);
+
+        //    while (true)
+        //    {
+        //        yield return wait;
+        //        FOV();
+        //    }
+        //}
+
+        //THIS SCRIPT IS A BACKUP, USE FielfOfVision1 INSTEAD!!!
+        private void FOV()
+        {
+            rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
+
+            if (rangeCheck.Length > 0)
+            {
+                Transform target = rangeCheck[0].transform;
+                Vector2 directionToTarget = (target.position - transform.position).normalized;
+
+                if (Vector2.Angle(transform.up, directionToTarget) < angle / 2)
+                {
+                    float distanceToTarget = Vector2.Distance(transform.position, target.position);
+
+                    if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
+                        CanSeePlayer = true;
+                    else
+                        CanSeePlayer = false;
+                }
                 else
                     CanSeePlayer = false;
             }
-            else
+            else if (CanSeePlayer)
                 CanSeePlayer = false;
         }
-        else if (CanSeePlayer)
-            CanSeePlayer = true;
-    }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
+        //private void OnDrawGizmos()
+        //{
+        //    Gizmos.color = Color.white;
+        //    UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
 
-        Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle / 2);
-        Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle / 2);
+        //    Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle / 2);
+        //    Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle / 2);
 
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
+        //    Gizmos.color = Color.yellow;
+        //    Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
+        //    Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
 
-        if (CanSeePlayer)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(transform.position, playerRef.transform.position);
-        }
-    }
+        //    if (CanSeePlayer)
+        //    {
+        //        Gizmos.color = Color.green;
+        //        Gizmos.DrawLine(transform.position, playerRef.transform.position);
+        //    }
+        //}
 
-    private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
-    {
-        angleInDegrees += eulerY;
+        //private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
+        //{
+        //    angleInDegrees += eulerY;
 
-        return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        //    return new Vector2(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
+        //}
     }
 }
