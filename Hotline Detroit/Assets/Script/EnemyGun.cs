@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
-public class EnemyGun : MonoBehaviour
+public class EnemyGun : VersionedMonoBehaviour
 {
     public Transform bulletSpawn;
 
@@ -12,28 +13,26 @@ public class EnemyGun : MonoBehaviour
 
     private float shootTimer;
 
-    public Player playerScript;
+    public Enemy enemyScript;
+    public FieldOfVision1 fov;
 
     void Start()
     {
         shootTimer = 0.5f;
-
-        playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+        fov = GetComponent<FieldOfVision1>();
+        //enemyScript = GameObject.Find("Sprite").GetComponent<Player>();
     }
 
     void Update()
     {
         shootTimer -= Time.deltaTime;
 
-        if (playerScript.hasGun)
+        if (fov.CanSeePlayer == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if(shootTimer < 0)
             {
-                if (shootTimer < 0)
-                {
-                    Fire();
-                    shootTimer = 0.4f;
-                }
+                Fire();
+                shootTimer = 0.5f;
             }
         }
     }
@@ -43,5 +42,6 @@ public class EnemyGun : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bulletSpawn.right * speed, ForceMode2D.Impulse);
+        Debug.Log("Fire");
     }
 }
