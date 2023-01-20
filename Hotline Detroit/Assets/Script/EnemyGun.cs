@@ -13,14 +13,12 @@ public class EnemyGun : VersionedMonoBehaviour
 
     private float shootTimer;
 
-    public Enemy enemyScript;
     public FieldOfVision1 fov;
 
     void Start()
     {
         shootTimer = 0.5f;
         fov = GetComponent<FieldOfVision1>();
-        //enemyScript = GameObject.Find("Sprite").GetComponent<Player>();
     }
 
     void Update()

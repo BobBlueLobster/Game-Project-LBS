@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
 
-public class Enemy : VersionedMonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private Collider2D collider;
     
@@ -17,15 +16,17 @@ public class Enemy : VersionedMonoBehaviour
 
     public bool hasEvilGun;
 
+    public Player playerScript;
+
     void Start()
     {
         enemyCurHP = enemyMaxHP;
 
         collider = GetComponent<Collider2D>();
 
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
-        //playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+        playerScript = GameObject.Find("Sprite").GetComponent<Player>();
     }
 
     void Update()
@@ -42,7 +43,8 @@ public class Enemy : VersionedMonoBehaviour
             collider.enabled = !collider.enabled;
             enemyCurHP = -1;
 
-            //playerScript.maxHumanity -= 10;
+            playerScript.maxHumanity -= 10;
+            Debug.Log(playerScript.maxHumanity);
         }
 
         if (horizontal == 0 || vertical == 0)
