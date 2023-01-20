@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     public int maxHumanity = 100;
 
+    public Collider2D collider1;
+
     public int killScore = 0;
 
     public int ammoCount;
@@ -35,6 +37,8 @@ public class Player : MonoBehaviour
 
         audioSource = GetComponent<AudioSource>();
 
+        collider1 = GetComponent<Collider2D>();
+
         gunScript = GameObject.Find("Gun").GetComponent<Gun>();
         moveScript = GameObject.Find("TestPlayer").GetComponent<Move>();
         rotateScript = GameObject.Find("PlayerTransform").GetComponent<PlayerRotate>();
@@ -53,6 +57,11 @@ public class Player : MonoBehaviour
         healthBar.SetHealth(curHP);
 
         humanityBar.SetHumanity(maxHumanity);
+
+        if(curHP == 0)
+        {
+            collider1.enabled = !collider1.enabled;
+        }
     }
 
     void OnCollisionEnter2D(Collision2D col)
