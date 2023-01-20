@@ -41,7 +41,14 @@ public class Player : MonoBehaviour
         humanityBar.SetHumanity(maxHumanity);
     }
 
-    
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Bullet")
+        {
+            curHP--;
+            Destroy(col.gameObject);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {

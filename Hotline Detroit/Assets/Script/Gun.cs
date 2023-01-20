@@ -14,8 +14,13 @@ public class Gun : MonoBehaviour
 
     public Player playerScript;
 
+    private int magazineMax = 7;
+    public int magazineCur;
+
     void Start()
     {
+        magazineCur = 0;
+
         shootTimer = 0.5f;
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
@@ -27,7 +32,7 @@ public class Gun : MonoBehaviour
 
         if (playerScript.hasGun)
         {
-            if(playerScript.ammoCount > 0)
+            if(magazineCur > 0)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -35,10 +40,29 @@ public class Gun : MonoBehaviour
                     {
                         Fire();
                         shootTimer = 0.4f;
-                        playerScript.ammoCount--;
+                        magazineCur--;
                     }
                 }
             }
+        }
+        if(Input.GetKey(KeyCode.R))
+        {
+            //Reload();
+            Invoke("Reload", 2);
+        }
+    }
+
+    void Reload()
+    {
+        if(playerScript.ammoCount >= 7)
+        {
+            magazineCur += magazineMax;
+            playerScript.ammoCount -= 7;
+        }
+        if(magazineCur == 0)
+        {
+            magazineCur = playerScript.ammoCount;
+            playerScript.ammoCount = 0;
         }
     }
 

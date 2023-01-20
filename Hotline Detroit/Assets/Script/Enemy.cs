@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         if (horizontal == 0 || vertical == 0)
         {
             //idle anim
-            animator.SetFloat("Speed", 1);
+            animator.SetFloat("Speed", 0);
         }
         if (horizontal != 0 || vertical != 0)
         {

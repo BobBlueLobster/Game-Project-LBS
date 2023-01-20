@@ -7,8 +7,11 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public TextMeshProUGUI ammo;
+    public TextMeshProUGUI mag;
 
     public Player playerScript;
+
+    public Gun gunScript;
 
     public Image crack;
 
@@ -23,8 +26,10 @@ public class UI : MonoBehaviour
         crack = GameObject.Find("Crack").GetComponent<Image>();
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+        gunScript = GameObject.Find("Gun").GetComponent<Gun>();
 
         ammo = GameObject.Find("AmmoCount").GetComponent<TextMeshProUGUI>();
+        mag = GameObject.Find("Mag").GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
@@ -36,6 +41,7 @@ public class UI : MonoBehaviour
         if(playerScript.ammoCount >= 10)
             ammo.SetText(playerScript.ammoCount.ToString());
 
+        mag.SetText(gunScript.magazineCur + "/");
 
         if(playerScript.curHP < 10 && playerScript.curHP >= 8)
         {

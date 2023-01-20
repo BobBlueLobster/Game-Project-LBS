@@ -10,11 +10,14 @@ public class PlayerAnimations : MonoBehaviour
     float vertical;
 
     public Player playerScript;
+    public Gun gunScript;
 
     private float shootTimer = 0.1f;
 
     void Start()
     {
+        gunScript = GameObject.Find("Gun").GetComponent<Gun>();
+
         animator = GetComponent<Animator>();
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
@@ -65,7 +68,7 @@ public class PlayerAnimations : MonoBehaviour
                 animator.SetFloat("Speed", 2);
             }
         }
-        if(playerScript.ammoCount > 0)
+        if(gunScript.magazineCur > 0)
         {
             if (shootTimer < 0)
             {
@@ -82,8 +85,7 @@ public class PlayerAnimations : MonoBehaviour
 
     void ShootAnim()
     {
-        
         animator.SetBool("Firing", false);
-        
+        //animator.SetFloat("Speed", 0.1f);
     }
 }
