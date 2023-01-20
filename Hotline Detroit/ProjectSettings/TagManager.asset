@@ -7,6 +7,8 @@ TagManager:
   - Bandage
   - Gun
   - Ammo
+  - Bullet
+  - Obstacle
   layers:
   - Default
   - TransparentFX
