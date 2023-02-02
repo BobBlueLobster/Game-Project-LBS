@@ -7741,6 +7741,26 @@ PrefabInstance:
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 769616439380411192, guid: f03f20f39e1e378409e28d6326bbbd67, type: 3}
+    - target: {fileID: 1502660441486164404, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502660441486164404, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502660441486164404, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502660441486164404, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502660441486164404, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 2353554748994097646, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
       propertyPath: targets.Array.size
       value: 2
