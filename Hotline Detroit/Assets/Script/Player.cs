@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
         collider1 = GetComponent<Collider2D>();
 
         gunScript = GameObject.Find("Gun").GetComponent<Gun>();
-        moveScript = GameObject.Find("TestPlayer").GetComponent<Move>();
+        moveScript = GameObject.Find("TestPlayer1").GetComponent<Move>();
         rotateScript = GameObject.Find("PlayerTransform").GetComponent<PlayerRotate>();
 
 

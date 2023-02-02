@@ -45,6 +45,8 @@ public class Enemy : MonoBehaviour
 
             playerScript.maxHumanity -= 10;
             Debug.Log(playerScript.maxHumanity);
+
+            playerScript.killScore++;
         }
 
         if (horizontal == 0 || vertical == 0)
