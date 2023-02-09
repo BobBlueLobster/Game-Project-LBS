@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
-public class Pathfindingg
-{
-    //public Pathfinding(int width, int height)
-    //{
+//public class Pathfindingg
+//{
 
-    //}
-}
+//    private Grid<>
+//    public Pathfindingg(int width, int height)
+//    {
+
+//    }
+//}
