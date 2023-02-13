@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 
-public class Grid<TGridObject>
+public class GridCM<TGridObject>
 {
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
     public class OnGridObjectChangedEventArgs : EventArgs
@@ -20,7 +20,7 @@ public class Grid<TGridObject>
     private Vector3 originPosition;
     private TGridObject[,] gridArray;
     private TextMesh[,] debugTextArray;
-    public Grid (int width, int height, float cellSize, Vector3 originPosition, Func<TGridObject> createGridObject)
+    public GridCM (int width, int height, float cellSize, Vector3 originPosition, Func<GridCM<TGridObject>, int, int, TGridObject> createGridObject)
     {
         this.width = width;
         this.height = height;
@@ -34,7 +34,7 @@ public class Grid<TGridObject>
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                gridArray[x, y] = createGridObject();
+                gridArray[x, y] = createGridObject(this, x, y);
             }
         }
 
@@ -68,7 +68,7 @@ public class Grid<TGridObject>
         if (x >= 0 && y>= 0 && x < width && y < height) {
             gridArray[x, y] = value;
             debugTextArray[x, y].text = gridArray[x, y].ToString();
-            if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs { x = x, y = y });
+            //if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs { x = x, y = y });
         }
     }
 

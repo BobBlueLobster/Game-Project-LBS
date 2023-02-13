@@ -5,11 +5,11 @@ using CodeMonkey.Utils;
 
 public class Testing : MonoBehaviour
 {
-    private Grid<HeatMapGridObject> grid;
+    private GridCM<HeatMapGridObject> grid;
 
     private void Start()
     {
-        grid = new Grid<HeatMapGridObject>(4, 2, 10f, new Vector3(20, 0), () => new HeatMapGridObject());
+        grid = new GridCM<HeatMapGridObject>(20, 10, 8f, Vector3.zero, (GridCM<HeatMapGridObject> g, int x, int y) => new HeatMapGridObject(g, x, y));
     }
 
     private void Update()
@@ -35,12 +35,24 @@ public class HeatMapGridObject
 {
     private int MIN = 0;
     private int MAX = 100;
-    public int value;
+
+    private GridCM<HeatMapGridObject> grid;
+    private int x;
+    private int y;
+    private int value;
+
+    public HeatMapGridObject(GridCM<HeatMapGridObject> grid, int x, int y)
+    {
+        this.grid = grid;
+        this.x = x;
+        this.y = y;
+    }
     
-    public  void AddValue(int addValue)
+    public void AddValue(int addValue)
     {
         value += addValue;
         Mathf.Clamp(value, MIN, MAX);
+        grid.TriggerGridObjectChanged(x, y);
     }
 
     public float GetValueNormalized()
