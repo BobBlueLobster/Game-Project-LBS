@@ -7,19 +7,41 @@ public class Pathfindingg
     private int MOVE_STRAIGHT_COST = 10;
     private int MOVE_DIAGONAL_COST = 14;
 
+    public static Pathfindingg Instance { get; private set; }
     private GridCM<PathNode> grid;
     private List<PathNode> openList;
     private List<PathNode> closedList;
 
     public Pathfindingg(int width, int height)
     {
-        grid = new GridCM<PathNode>(width, height, 10f, Vector3.zero, (GridCM<PathNode> g, int x, int y) => new PathNode(g, x, y));
-
+        Instance = this;
+        grid = new GridCM<PathNode>(width, height, 3f, Vector3.zero, (GridCM<PathNode> g, int x, int y) => new PathNode(g, x, y));
     }
 
     public GridCM<PathNode> GetGrid()
     {
         return grid;
+    }
+
+    public List<Vector3> FindPath(Vector3 startWorldPosition, Vector3 endWorldPosition)
+    {
+        grid.GetXY(startWorldPosition, out int startX, out int startY);
+        grid.GetXY(endWorldPosition, out int endX, out int endY);
+
+        List<PathNode> path = FindPath(startX, startY, endX, endY);
+        if (path == null)
+        {
+            return null;
+        }
+        else
+        {
+            List<Vector3> vectorPath = new List<Vector3>();
+            foreach (PathNode pathNode in path)
+            {
+                vectorPath.Add(new Vector3(pathNode.x, pathNode.y) * grid.GetCellSize() + Vector3.one * grid.GetCellSize() * .5f);
+            }
+            return vectorPath;
+        }
     }
 
     public List<PathNode> FindPath(int startX, int startY, int endX, int endY)
@@ -61,6 +83,11 @@ public class Pathfindingg
             foreach (PathNode neighbourNode in GetNeighbourList(currentNode))
             {
                 if (closedList.Contains(neighbourNode)) continue;
+                if (!neighbourNode.isWalkable)
+                {
+                    closedList.Add(neighbourNode);
+                    continue;
+                }
 
                 int tentativeGCost = currentNode.gCost + CalculateDistanceCost(currentNode, neighbourNode);
                 if (tentativeGCost < neighbourNode.gCost)

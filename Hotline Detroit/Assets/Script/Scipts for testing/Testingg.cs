@@ -6,10 +6,11 @@ using CodeMonkey;
 
 public class Testingg : MonoBehaviour
 {
+    [SerializeField] private CharacterPathfindingMovementHandler characterPathfinding;
     private Pathfindingg pathfindingg;
     private void Start()
     {
-        pathfindingg = new Pathfindingg(10, 10);
+        pathfindingg = new Pathfindingg(20, 20);
 
     }
 
@@ -24,9 +25,10 @@ public class Testingg : MonoBehaviour
             {
                 for (int i = 0; i < path.Count - 1; i++)
                 {
-                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].x, path[i + 1].y) * 10f + Vector3.one * 5f, Color.green, .5f);
+                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 3f + Vector3.one /** 5f*/, new Vector3(path[i + 1].x, path[i + 1].y) * 3f + Vector3.one /** 5f*/, Color.green, .5f);
                 }
             }
+            characterPathfinding.SetTargetPosition(mouseworldPosition);
         }
     }
 }
