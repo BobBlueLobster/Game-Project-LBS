@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        /*
         healthBar.SetHealth(curHP);
 
         humanityBar.SetHumanity(maxHumanity);
@@ -61,6 +62,7 @@ public class Player : MonoBehaviour
         if(curHP == 0)
         {
         }
+        */
     }
 
     void OnCollisionEnter2D(Collision2D col)
