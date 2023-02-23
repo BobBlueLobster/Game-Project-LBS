@@ -14,6 +14,7 @@ public class PathNode
 
     public bool isWalkable;
     public PathNode cameFromNode;
+    public Testingg test = new Testingg();
 
     public PathNode(GridCM<PathNode> grid, int x, int y)
     {
@@ -21,6 +22,7 @@ public class PathNode
         this.x = x;
         this.y = y;
         isWalkable = true;
+        //foreach (Testingg wall in wall)
     }
 
     public void CalculateFCost()

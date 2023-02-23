@@ -54,9 +54,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        healthBar.SetHealth(curHP);
+        //healthBar.SetHealth(curHP);
 
-        humanityBar.SetHumanity(maxHumanity);
+        //humanityBar.SetHumanity(maxHumanity);
 
         if(curHP == 0)
         {

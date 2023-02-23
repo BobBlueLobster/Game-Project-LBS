@@ -15,7 +15,7 @@ public class Pathfindingg
     public Pathfindingg(int width, int height)
     {
         Instance = this;
-        grid = new GridCM<PathNode>(width, height, 3f, Vector3.zero, (GridCM<PathNode> g, int x, int y) => new PathNode(g, x, y));
+        grid = new GridCM<PathNode>(width, height, 10f, Vector3.zero, (GridCM<PathNode> g, int x, int y) => new PathNode(g, x, y));
     }
 
     public GridCM<PathNode> GetGrid()
@@ -31,6 +31,7 @@ public class Pathfindingg
         List<PathNode> path = FindPath(startX, startY, endX, endY);
         if (path == null)
         {
+            Debug.Log("rawr");
             return null;
         }
         else
@@ -85,6 +86,7 @@ public class Pathfindingg
                 if (closedList.Contains(neighbourNode)) continue;
                 if (!neighbourNode.isWalkable)
                 {
+                    Debug.Log("kurwa");
                     closedList.Add(neighbourNode);
                     continue;
                 }
