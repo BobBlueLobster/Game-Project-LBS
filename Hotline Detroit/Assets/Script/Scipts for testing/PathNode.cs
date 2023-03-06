@@ -22,7 +22,10 @@ public class PathNode
         this.x = x;
         this.y = y;
         isWalkable = true;
-        //foreach (Testingg wall in wall)
+        foreach (GameObject i in test.wall)
+        {
+            isWalkable = false;
+        }
     }
 
     public void CalculateFCost()

@@ -12,12 +12,14 @@ public class Testingg : MonoBehaviour
     private Pathfindingg pathfindingg;
     private void Start()
     {
-        pathfindingg = new Pathfindingg(20, 20);
+        pathfindingg = new Pathfindingg(20, 20);       
         wall = GameObject.FindGameObjectsWithTag("Obstacle");
     }
 
     private void Update()
     {
+        
+
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mouseworldPosition = UtilsClass.GetMouseWorldPosition();
