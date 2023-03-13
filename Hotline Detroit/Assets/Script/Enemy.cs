@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Collider2D collider;
+    private Collider2D enemyCollider;
     
     private Animator animator;
 
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         enemyCurHP = enemyMaxHP;
 
-        collider = GetComponent<Collider2D>();
+        enemyCollider = GetComponent<Collider2D>();
 
         animator = GetComponent<Animator>();
 
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Dead", true);
             animator.SetFloat("Speed", 0);
 
-            collider.enabled = !collider.enabled;
+            enemyCollider.enabled = !enemyCollider.enabled;
             enemyCurHP = -1;
 
             playerScript.maxHumanity -= 10;

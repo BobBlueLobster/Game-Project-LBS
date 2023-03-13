@@ -15,8 +15,11 @@ namespace Pathfinding
         public LayerMask obstructionLayer;
         public Collider2D[] rangeCheck { get; private set; }
 
+
+        //playerRef and playerTransform possibly only for drawing gizmos
         public AIPath aipath;
-        public GameObject playerRef;
+        //public GameObject playerRef;
+        //public Transform playerTransform;
         public AIDestinationSetter destSet;
         public Patrol patrol;
 
@@ -30,7 +33,8 @@ namespace Pathfinding
         //Check the original FieldOfVision if you need to revert back to the old code
         void Start()
         {
-            playerRef = GameObject.FindGameObjectWithTag("Player");
+            //playerRef = GameObject.FindGameObjectWithTag("Player");
+            //playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             //StartCoroutine(FOVCheck());
             FOVOn = true;
         }
@@ -125,6 +129,7 @@ namespace Pathfinding
                 {
                     float distanceToTarget = Vector2.Distance(transform.position, target.position);
 
+                    //give the desired the Layer that the enemy should follow/trigger (in this case: Player)
                     if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
                     {
                         CanSeePlayer = true;
@@ -164,7 +169,7 @@ namespace Pathfinding
             if (CanSeePlayer)
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawLine(transform.position, playerRef.transform.position);
+                //Gizmos.DrawLine(transform.position, playerTransform.position);
             }
         }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 430586150294204206}
   - component: {fileID: 430586150294204176}
   - component: {fileID: 430586150294204207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 430586150357707149}
   - component: {fileID: 430586150357707150}
   - component: {fileID: 430586150357707121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   m_Component:
   - component: {fileID: 430586150731142645}
   - component: {fileID: 430586150731142644}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,9 +323,9 @@ GameObject:
   - component: {fileID: 430586150960553337}
   - component: {fileID: 430586150960553334}
   - component: {fileID: 430586150960553335}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestPlayer1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 430586152158734351}
   - component: {fileID: 430586152158734350}
   - component: {fileID: 430586152158734346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerTransform
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1717831475119274688}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 1717831476609967039}
   - component: {fileID: 1717831476609967036}
   - component: {fileID: 1717831476609967037}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 1717831476786902392}
   - component: {fileID: 1717831476786902393}
   - component: {fileID: 1717831476786902390}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -952,6 +952,7 @@ MonoBehaviour:
   maxHP: 10
   curHP: 4
   maxHumanity: 100
+  collider1: {fileID: 0}
   killScore: 0
   ammoCount: 0
   hasGun: 1
@@ -1083,7 +1084,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1717831477046000655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
