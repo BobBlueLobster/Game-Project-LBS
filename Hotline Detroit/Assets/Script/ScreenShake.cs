@@ -11,29 +11,38 @@ public class ScreenShake : MonoBehaviour
     public GameObject thePlayer;
     private Player playerScript;
 
+    public GameObject theGun;
+    private Gun gunScript;
+
     private float shootTimer;
 
     void Start()
     {
         shootTimer = 0.4f;
         playerScript = thePlayer.GetComponent<Player>();
+
+        gunScript = theGun.GetComponent<Gun>();
     }
 
     // Update is called once per frame
     void Update()
     {
         shootTimer -= Time.deltaTime;
-        if (shootTimer < 0)
+        if(playerScript.hasGun == true && gunScript.magazineCur > 0)
         {
-            if(Input.GetMouseButtonDown(0))
+            if (shootTimer < 0)
             {
-                if (playerScript.hasGun == true)
+                if (Input.GetMouseButtonDown(0))
                 {
-                    StartShake(.1f, 0.2f);
+                    if (playerScript.hasGun == true)
+                    {
+                        StartShake(.1f, 0.2f);
+                    }
+                    shootTimer = .4f;
                 }
-                shootTimer = .4f;
             }
         }
+        
         transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
 
     }
