@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
                     if (shootTimer < 0)
                     {
                         audioSource.PlayOneShot(shooting, 0.5f);
-                        Fire();
+                        FirePistol();
                         shootTimer = 0.4f;
                         magazineCur--;
                     }
@@ -86,7 +86,7 @@ public class Gun : MonoBehaviour
         
     }
 
-    void Fire()
+    void FirePistol()
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

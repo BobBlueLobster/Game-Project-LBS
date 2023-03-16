@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bandage
-  - Gun
   - Ammo
   - Bullet
   - Obstacle
+  - Pistol
+  - Shotgun
   layers:
   - Default
   - TransparentFX

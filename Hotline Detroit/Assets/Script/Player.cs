@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public int ammoCount;
 
     public bool hasGun;
+    public bool hasShotgun;
 
     public PlayerBars healthBar;
 
@@ -113,9 +114,15 @@ public class Player : MonoBehaviour
             Debug.Log(ammoCount);
         }
         
-        if(col.gameObject.tag == "Gun")
+        if(col.gameObject.tag == "Pistol")
         {
             hasGun = true;
+
+            Destroy(col.gameObject);
+        }
+        if (col.gameObject.tag == "Shotgun")
+        {
+            hasShotgun = true;
 
             Destroy(col.gameObject);
         }
