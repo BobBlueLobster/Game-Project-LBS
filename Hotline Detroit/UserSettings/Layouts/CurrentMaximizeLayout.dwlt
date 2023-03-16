@@ -24,11 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
- Victor-V
-  controlID: 105
-
-  controlID: 2948
- main
+  controlID: 10396
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -49,17 +45,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
- Victor-V
-    x: 222.66667
-    y: 72.66667
-    width: 687.3333
-    height: 328.33334
-
     x: 227
     y: 19
-    width: 697.3333
-    height: 313
- main
+    width: 692.6667
+    height: 272.33334
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -70,11 +59,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
- Victor-V
-  m_TargetSize: {x: 687.3333, y: 307.33334}
-
-  m_TargetSize: {x: 697.3333, y: 292}
- main
+  m_TargetSize: {x: 692.6667, y: 251.33334}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -89,17 +74,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
- Victor-V
-    m_HBaseRangeMin: -229.11111
-    m_HBaseRangeMax: 229.11111
-    m_VBaseRangeMin: -102.44445
-    m_VBaseRangeMax: 102.44445
-
-    m_HBaseRangeMin: -232.44444
-    m_HBaseRangeMax: 232.44444
-    m_VBaseRangeMin: -97.333336
-    m_VBaseRangeMax: 97.333336
- main
+    m_HBaseRangeMin: -230.8889
+    m_HBaseRangeMax: 230.8889
+    m_VBaseRangeMin: -83.77779
+    m_VBaseRangeMax: 83.77779
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -108,11 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
- Victor-V
-    m_EnableMouseInput: 1
-
     m_EnableMouseInput: 0
- main
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -121,40 +95,23 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
- Victor-V
-      width: 687.3333
-      height: 307.33334
-    m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 343.66666, y: 153.66667}
-
-      width: 697.3333
-      height: 292
-    m_Scale: {x: 1.3857223, y: 1.3857222}
-    m_Translation: {x: 348.66666, y: 146}
- main
+      width: 692.6667
+      height: 251.33334
+    m_Scale: {x: 1.1059948, y: 1.1059948}
+    m_Translation: {x: 346.3333, y: 125.66667}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
- Victor-V
-      x: -343.66666
-      y: -153.66667
-      width: 687.3333
-      height: 307.33334
+      x: -313.1419
+      y: -113.6232
+      width: 626.2838
+      height: 227.2464
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1031, y: 492.5}
-
-      x: -251.61366
-      y: -105.36023
-      width: 503.22733
-      height: 210.72046
-    m_MinimalGUI: 1
-  m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 1046, y: 469.5}
- main
+  m_LastWindowPixelSize: {x: 1039, y: 408.5}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -179,20 +136,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
- Victor-V
-    width: 912
-
-    width: 925.3333
- main
+    width: 920.6667
     height: 587.3333
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
- Victor-V
-  controlID: 106
-
-  controlID: 2949
- main
+  controlID: 10397
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -212,21 +161,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
- Victor-V
-    width: 912
-    height: 349.33334
+    width: 920.6667
+    height: 293.33334
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 107
-
-    width: 925.3333
-    height: 334
-  m_MinSize: {x: 200, y: 100}
-  m_MaxSize: {x: 16192, y: 8096}
-  vertical: 0
-  controlID: 2950
- main
+  controlID: 10398
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,17 +184,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
- Victor-V
-    width: 222.66667
-    height: 349.33334
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-
     width: 226
-    height: 334
+    height: 293.33334
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
- main
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -282,13 +215,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 72.66667
- Victor-V
-    width: 221.66667
-    height: 328.33334
-
     width: 225
-    height: 313
- main
+    height: 272.33334
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -298,11 +226,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
- Victor-V
-      m_ExpandedIDs: 5af1ffff3cf5fffff6f7ffff0efbffffd26e0000
-
-      m_ExpandedIDs: 0efbffff
- main
+      m_ExpandedIDs: 66b3ffffa2b3ffffe4b3ffff2ccdffff34cdffff74cdffff84d8ffffa0d9ffffbefaffffc6faffffccfaffffdcfaffff0efbffff6e9f0000d09f0000f69f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -341,17 +265,10 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
- Victor-V
-    x: 222.66667
-    y: 0
-    width: 689.3333
-    height: 349.33334
-
     x: 226
     y: 0
-    width: 699.3333
-    height: 334
- main
+    width: 694.6667
+    height: 293.33334
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
@@ -382,17 +299,10 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
- Victor-V
-    x: 222.66667
-    y: 72.66667
-    width: 687.3333
-    height: 328.33334
-
     x: 226
     y: 72.66667
-    width: 697.3333
-    height: 313
- main
+    width: 692.6667
+    height: 272.33334
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -402,13 +312,8 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
- Victor-V
-      snapOffset: {x: -101, y: -26}
-      snapOffsetDelta: {x: 0, y: 0}
-
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: -98.66669, y: -26}
- main
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -429,7 +334,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.666666}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -451,7 +356,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25.333334}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -495,7 +400,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 0
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25.333334}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Camera
@@ -637,8 +542,8 @@ MonoBehaviour:
       containerId: overlay-toolbar__top
       floating: 0
       collapsed: 0
-      displayed: 1
-      snapOffset: {x: 0, y: 0}
+      displayed: 0
+      snapOffset: {x: 0, y: 24.666666}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: Scene View/Tilemap Focus
@@ -654,15 +559,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
- Victor-V
-    m_Target: {x: 28.69964, y: 27.663816, z: 0.011830553}
+    m_Target: {x: 6.281005, y: -0.55374223, z: 0.060930945}
     speed: 2
-    m_Value: {x: 28.69964, y: 27.663816, z: 0.011830553}
-
-    m_Target: {x: -2.6406739, y: 2.1702166, z: -0.06524292}
-    speed: 2
-    m_Value: {x: -2.6406739, y: 2.1702166, z: -0.06524292}
- main
+    m_Value: {x: 6.281005, y: -0.55374223, z: 0.060930945}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -713,15 +612,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
- Victor-V
-    m_Target: 9.993907
+    m_Target: 3.4243846
     speed: 2
-    m_Value: 9.993907
-
-    m_Target: 7.0619864
-    speed: 2
-    m_Value: 7.0619864
- main
+    m_Value: 3.4243846
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -766,28 +659,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
- Victor-V
-    x: 222.66667
-    y: 72.66667
-    width: 687.3333
-    height: 328.33334
-
     x: 226
     y: 72.66667
     width: 697.3333
     height: 313
- main
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
- Victor-V
-  m_LastSelectedObjectID: -2116
-
-  m_LastSelectedObjectID: 28372
- main
+  m_LastSelectedObjectID: -20212
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -808,39 +690,28 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
- Victor-V
-    x: 222.66667
-    y: 72.66667
-    width: 687.3333
-    height: 328.33334
-
     x: 226
     y: 72.66667
-    width: 697.3333
-    height: 313
- main
+    width: 692.6667
+    height: 272.33334
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_ViewTransforms:
     m_KeySerializationHelper:
- Victor-V
-    - {fileID: -4375708179943896342, guid: b82127c8706178f4ba2f574e11c1f2cf, type: 2}
-
- main
     - {fileID: -1697741903699597184, guid: 4665f69389cb658459aa44fbb50c0654, type: 2}
-    - {fileID: -2236839314141588275, guid: f633420855704a247a54204784f220db, type: 2}
+    - {fileID: 8507860062203976118, guid: 2e3e0d7b7c4f1c9438a2b7aa3722d625, type: 2}
+    - {fileID: 595542446101974957, guid: 9efd5e230a26cd14a881156d147a1533, type: 2}
     m_ValueSerializationHelper:
- Victor-V
-    - e00: 0.73887837
+    - e00: 0.22052217
       e01: 0
       e02: 0
-      e03: -28.069942
+      e03: 164.05591
       e10: 0
-      e11: 0.73887837
+      e11: 0.22052217
       e12: 0
-      e13: 80.48411
+      e13: -5.905512
       e20: 0
       e21: 0
       e22: 1
@@ -849,21 +720,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.6596369
-
-    - e00: 0.2
- main
+    - e00: 0.35057473
       e01: 0
       e02: 0
-      e03: -9.17659
+      e03: 72.12067
       e10: 0
-      e11: 0.6596369
+      e11: 0.35057473
       e12: 0
- Victor-V
-      e13: 29.794891
-
-      e13: 21
- main
+      e13: 7.9885025
       e20: 0
       e21: 0
       e22: 1
@@ -872,25 +736,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
- Victor-V
-    - e00: 0.94632214
+    - e00: 0.60213315
       e01: 0
       e02: 0
-      e03: -165.73593
+      e03: -2.7952936
       e10: 0
-      e11: 0.94632214
+      e11: 0.60213315
       e12: 0
-      e13: 17.92395
-
-    - e00: 0.21214655
-      e01: 0
-      e02: 0
-      e03: 165.91064
-      e10: 0
-      e11: 0.21214655
-      e12: 0
-      e13: 53.47136
- main
+      e13: 45.926872
       e20: 0
       e21: 0
       e22: 1
@@ -900,15 +753,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
- Victor-V
-  m_AnimatorController: {fileID: 9100000, guid: f633420855704a247a54204784f220db, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 4665f69389cb658459aa44fbb50c0654, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -2236839314141588275, guid: f633420855704a247a54204784f220db, type: 2}
-
-  m_AnimatorController: {fileID: 9100000, guid: 2e3e0d7b7c4f1c9438a2b7aa3722d625, type: 2}
-  m_BreadCrumbs:
-  - m_Target: {fileID: 8507860062203976118, guid: 2e3e0d7b7c4f1c9438a2b7aa3722d625, type: 2}
- main
+  - m_Target: {fileID: -1697741903699597184, guid: 4665f69389cb658459aa44fbb50c0654, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -931,33 +778,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TimelineWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
     serializedVersion: 2
     x: 0
- Victor-V
-    y: 349.33334
-    width: 912
-    height: 237.99997
+    y: 293.33334
+    width: 920.6667
+    height: 293.99997
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
   m_ActualView: {fileID: 12}
-
-    y: 334
-    width: 925.3333
-    height: 253.33331
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 14}
- main
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
   - {fileID: 14}
-  m_Selected: 2
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -979,15 +817,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
- Victor-V
-    y: 422
-    width: 911
-    height: 216.99997
-
-    y: 432.6667
-    width: 924.3333
-    height: 206.33331
- main
+    y: 366
+    width: 919.6667
+    height: 272.99997
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1005,40 +837,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
- Victor-V
-    - Assets/Scenes
-
-    - Assets/Sprite
- main
+    - Assets/Prefab
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
- Victor-V
-  - Assets/Scenes
-  m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\GitHub\Game-Project-LBS\Hotline Detroit
-  m_LockTracker:
-    m_IsLocked: 0
-  m_FolderTreeState:
-    scrollPos: {x: 0, y: 75.00003}
-    m_SelectedIDs: c6700000
-    m_LastClickedID: 28870
-    m_ExpandedIDs: 00000000c4700000c6700000c870000000ca9a3b
-
-  - Assets/Sprite
+  - Assets/Prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\axel.eklof\Documents\GitHub\Game-Project-LBS\Hotline
     Detroit
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 120}
-    m_SelectedIDs: b26f0000
-    m_LastClickedID: 28594
-    m_ExpandedIDs: 00000000b6700000b8700000
- main
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 40730000
+    m_LastClickedID: 29504
+    m_ExpandedIDs: 00000000207300002273000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1066,11 +881,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
- Victor-V
-    m_ExpandedIDs: 00000000c4700000c6700000c8700000
-
-    m_ExpandedIDs: 00000000b6700000b8700000
- main
+    m_ExpandedIDs: 00000000207300002273000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1095,17 +906,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
- Victor-V
-    m_SelectedInstanceIDs: 58f1ffff
-    m_LastClickedInstanceID: -3752
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000004110100
-
-    m_SelectedInstanceIDs: 44afffff
-    m_LastClickedInstanceID: -20668
+    m_SelectedInstanceIDs: 0cb1ffff
+    m_LastClickedInstanceID: -20212
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
- main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1121,7 +925,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 15}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -1154,15 +958,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
- Victor-V
-    y: 422
-    width: 911
-    height: 216.99997
-
-    y: 392
-    width: 993.6667
-    height: 246.99997
- main
+    y: 366
+    width: 919.6667
+    height: 272.99997
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -1202,7 +1000,7 @@ MonoBehaviour:
     m_IsLocked: 0
   m_SequenceHierarchy: {fileID: 0}
   m_SequencePath:
-    m_SelectionRoot: 28446
+    m_SelectionRoot: 0
     m_SubElements: []
 --- !u!114 &15
 MonoBehaviour:
@@ -1219,31 +1017,19 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
- Victor-V
-    x: 912
-
-    x: 925.3333
- main
+    x: 920.6667
     y: 0
-    width: 354.6667
+    width: 359.3333
     height: 587.3333
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 15}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 16}
   m_Panes:
- Victor-V
-  - {fileID: 15}
-  - {fileID: 16}
-  m_Selected: 0
-  m_LastSelected: 1
---- !u!114 &15
-
   - {fileID: 16}
   - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &16
- main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1263,13 +1049,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
- Victor-V
-    x: 912
-
-    x: 925.3334
- main
+    x: 920.6667
     y: 72.66667
-    width: 353.6667
+    width: 358.3333
     height: 566.3333
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1281,12 +1063,8 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
- Victor-V
-  m_LastInspectedObjectInstanceID: -3752
-
-  m_LastInspectedObjectInstanceID: 28372
- main
-  m_LastVerticalScrollValue: 0
+  m_LastInspectedObjectInstanceID: -20212
+  m_LastVerticalScrollValue: 108
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1312,9 +1090,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 868.6667
+    x: 925.3334
     y: 72.66667
-    width: 410.3333
+    width: 353.6667
     height: 566.3333
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1324,6 +1102,6 @@ MonoBehaviour:
     m_CachedPref: -50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
-  m_Palette: {fileID: 7621130911675651714, guid: 34346ff750bdad14ab43555cd1478de6, type: 3}
+  m_Palette: {fileID: 5875080170487665291, guid: d2b7030f4934d1040bc7f145b8b2d10d, type: 3}
   m_DrawGridGizmo: 1
   m_DrawGizmos: 0

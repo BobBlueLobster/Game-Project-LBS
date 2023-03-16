@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public int ammoCount;
 
     public bool hasGun;
+    public bool hasShotgun;
 
     public PlayerBars healthBar;
 
@@ -40,7 +41,7 @@ public class Player : MonoBehaviour
         collider1 = GetComponent<Collider2D>();
 
         gunScript = GameObject.Find("Gun").GetComponent<Gun>();
-        moveScript = GameObject.Find("TestPlayer1").GetComponent<Move>();
+        moveScript = GameObject.Find("TestPlayer2").GetComponent<Move>();
         rotateScript = GameObject.Find("PlayerTransform").GetComponent<PlayerRotate>();
 
 
@@ -54,6 +55,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        /*
         healthBar.SetHealth(curHP);
 
         humanityBar.SetHumanity(maxHumanity);
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
         if(curHP == 0)
         {
         }
+        */
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -111,9 +114,15 @@ public class Player : MonoBehaviour
             Debug.Log(ammoCount);
         }
         
-        if(col.gameObject.tag == "Gun")
+        if(col.gameObject.tag == "Pistol")
         {
             hasGun = true;
+
+            Destroy(col.gameObject);
+        }
+        if (col.gameObject.tag == "Shotgun")
+        {
+            hasShotgun = true;
 
             Destroy(col.gameObject);
         }
