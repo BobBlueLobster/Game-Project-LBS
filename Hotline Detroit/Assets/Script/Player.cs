@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     {
         if(col.gameObject.tag == "Bullet")
         {
-            curHP--;
+            //curHP--;
             Destroy(col.gameObject);
 
             if (curHP == 0)
