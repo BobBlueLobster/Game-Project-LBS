@@ -19,6 +19,11 @@ public class Player : MonoBehaviour
     public bool hasGun;
     public bool hasShotgun;
 
+    public GameObject pistol;
+    public GameObject shotgun;
+
+    public int curWeapon;
+
     public PlayerBars healthBar;
 
     public Gun gunScript;
@@ -55,15 +60,18 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        /*
-        healthBar.SetHealth(curHP);
-
-        humanityBar.SetHumanity(maxHumanity);
-
-        if(curHP == 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            if(hasGun==true)
+                curWeapon = 1;
         }
-        */
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if(hasShotgun==true)
+                curWeapon = 2;
+        }
+
+        SwitchGun();
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -118,13 +126,31 @@ public class Player : MonoBehaviour
         {
             hasGun = true;
 
+            curWeapon = 1;
+
             Destroy(col.gameObject);
         }
         if (col.gameObject.tag == "Shotgun")
         {
             hasShotgun = true;
 
+            curWeapon = 2;
+
             Destroy(col.gameObject);
+        }
+    }
+
+    void SwitchGun()
+    {
+        if(curWeapon == 1)
+        {
+            pistol.SetActive(true);
+            shotgun.SetActive(false);
+        }
+        if(curWeapon == 2)
+        {
+            shotgun.SetActive(true);
+            pistol.SetActive(false);
         }
     }
 }
