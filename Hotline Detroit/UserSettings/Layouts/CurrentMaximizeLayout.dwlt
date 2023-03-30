@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 3}
+ AxelPlayer
+  - {fileID: 12}
+
   - {fileID: 14}
+ main
   m_Position:
     serializedVersion: 2
     x: 0
@@ -24,7 +28,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+ AxelPlayer
+  controlID: 3939
+
   controlID: 5524
+ main
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -45,10 +53,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+ AxelPlayer
+    x: 222.33333
+    y: 19
+    width: 695.3334
+    height: 295
+
     x: 222.66667
     y: 72.66667
     width: 687.3333
     height: 328.33334
+ main
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -59,7 +74,11 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
+ AxelPlayer
+  m_TargetSize: {x: 695.3334, y: 274}
+
   m_TargetSize: {x: 687.3333, y: 307.33334}
+ main
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -74,10 +93,17 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
+ AxelPlayer
+    m_HBaseRangeMin: -231.7778
+    m_HBaseRangeMax: 231.7778
+    m_VBaseRangeMin: -91.333336
+    m_VBaseRangeMax: 91.333336
+
     m_HBaseRangeMin: -229.11111
     m_HBaseRangeMax: 229.11111
     m_VBaseRangeMin: -102.44445
     m_VBaseRangeMax: 102.44445
+ main
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -95,16 +121,32 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+ AxelPlayer
+      width: 695.3334
+      height: 274
+    m_Scale: {x: 1.3803939, y: 1.3803939}
+    m_Translation: {x: 347.6667, y: 137}
+
       width: 687.3333
       height: 307.33334
     m_Scale: {x: 1, y: 1}
     m_Translation: {x: 343.66666, y: 153.66667}
+ main
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+ AxelPlayer
+      x: -251.8605
+      y: -99.24704
+      width: 503.721
+      height: 198.49408
+    m_MinimalGUI: 1
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1043, y: 442.5}
+
       x: -343.66666
       y: -153.66667
       width: 687.3333
@@ -112,6 +154,7 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1031, y: 492.5}
+ main
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -131,17 +174,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Children:
   - {fileID: 4}
-  - {fileID: 11}
+  - {fileID: 9}
   m_Position:
     serializedVersion: 2
     x: 0
     y: 0
+ AxelPlayer
+    width: 918.6667
+
     width: 912
+ main
     height: 587.3333
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
+ AxelPlayer
+  controlID: 3940
+
   controlID: 5525
+ main
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,12 +212,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+ AxelPlayer
+    width: 918.6667
+    height: 316
+  m_MinSize: {x: 200, y: 100}
+  m_MaxSize: {x: 16192, y: 8096}
+  vertical: 0
+  controlID: 3941
+
     width: 912
     height: 349.33334
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
   controlID: 5526
+ main
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -184,10 +244,17 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+ AxelPlayer
+    width: 221.33333
+    height: 316
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+
     width: 222.66667
     height: 349.33334
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
+ main
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -215,18 +282,27 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 72.66667
+ AxelPlayer
+    width: 220.33333
+    height: 295
+
     width: 221.66667
     height: 328.33334
+ main
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
+      scrollPos: {x: 0, y: 94}
       m_SelectedIDs: 
       m_LastClickedID: 0
+ AxelPlayer
+      m_ExpandedIDs: 2cdaffff6edaffff88deffff0efbffff186f0000c06f0000cc6f000054a200009ea2000046a3000052a30000
+
       m_ExpandedIDs: d461ffffd870ffff447bffffe47dffff7485ffffd485fffff68cffff9292ffffd496ffff4299ffff149bffff1a9bfffffe9cffff5ca1ffffbea6ffff9aafffff9ac7ffff74f3ffffccf5ffff0efbffff2a7600004e76000090b00000
+ main
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -265,18 +341,23 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+ AxelPlayer
+    x: 221.33333
+    y: 0
+    width: 697.3334
+    height: 316
+
     x: 222.66667
     y: 0
     width: 689.3333
     height: 349.33334
+ main
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 8}
   - {fileID: 2}
-  - {fileID: 9}
-  - {fileID: 10}
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &8
@@ -299,10 +380,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+ AxelPlayer
+    x: 221.33334
+    y: 72.66667
+    width: 695.3334
+    height: 295
+
     x: 222.66667
     y: 72.66667
     width: 687.3333
     height: 328.33334
+ main
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -552,16 +640,22 @@ MonoBehaviour:
   m_WindowGUID: cc27987af1a868c49b0894db9c0f5429
   m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+ AxelPlayer
+    m_Target: {x: 5.124794, y: 0.3128029, z: 0.06658762}
+    speed: 2
+    m_Value: {x: 5.124794, y: 0.3128029, z: 0.06658762}
+
     m_Target: {x: -37.655666, y: 19.813644, z: -0.40797913}
     speed: 2
     m_Value: {x: -37.655666, y: 19.813644, z: -0.40797913}
+ main
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -612,9 +706,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+ AxelPlayer
+    m_Target: 3.8082318
+    speed: 2
+    m_Value: 3.8082318
+
     m_Target: 19.21123
     speed: 2
     m_Value: 19.21123
+ main
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -647,6 +747,8 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+ AxelPlayer
+
   m_EditorHideFlags: 0
   m_Script: {fileID: 12071, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -776,6 +878,7 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
+ main
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: ProjectBrowser
@@ -784,6 +887,17 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+ AxelPlayer
+    y: 316
+    width: 918.6667
+    height: 271.3333
+  m_MinSize: {x: 230, y: 250}
+  m_MaxSize: {x: 10000, y: 10000}
+  m_ActualView: {fileID: 10}
+  m_Panes:
+  - {fileID: 10}
+  - {fileID: 11}
+
     y: 349.33334
     width: 912
     height: 237.99997
@@ -793,9 +907,10 @@ MonoBehaviour:
   m_Panes:
   - {fileID: 12}
   - {fileID: 13}
+ main
   m_Selected: 0
   m_LastSelected: 1
---- !u!114 &12
+--- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -816,9 +931,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+ AxelPlayer
+    y: 388.6667
+    width: 917.6667
+    height: 250.33331
+
     y: 422
     width: 911
     height: 216.99997
+ main
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -849,9 +970,15 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
+ AxelPlayer
+    m_SelectedIDs: 7e730000
+    m_LastClickedID: 29566
+    m_ExpandedIDs: 00000000487300004a73000000ca9a3b
+
     m_SelectedIDs: 02740000
     m_LastClickedID: 29698
     m_ExpandedIDs: 0000000016730000187300004273000000ca9a3b
+ main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -879,7 +1006,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+ AxelPlayer
+    m_ExpandedIDs: 00000000487300004a73000000ca9a3b
+
     m_ExpandedIDs: 00000000167300001873000000ca9a3b
+ main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -904,10 +1035,17 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+ AxelPlayer
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
+    m_ExpandedInstanceIDs: c623000078ab0000
+
     m_SelectedInstanceIDs: a0960000
     m_LastClickedInstanceID: 38560
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000004110100
+ main
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -923,7 +1061,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -931,11 +1069,11 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 3.666687}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &13
+--- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -956,14 +1094,24 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+ AxelPlayer
+    y: 388.6667
+    width: 917.6667
+    height: 250.33331
+
     y: 422
     width: 911
     height: 216.99997
+ main
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+ AxelPlayer
+--- !u!114 &12
+
 --- !u!114 &14
+ main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -978,6 +1126,22 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+ AxelPlayer
+    x: 918.6667
+    y: 0
+    width: 361.3333
+    height: 587.3333
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 13}
+  m_Panes:
+  - {fileID: 13}
+  - {fileID: 14}
+  - {fileID: 15}
+  m_Selected: 0
+  m_LastSelected: 2
+--- !u!114 &13
+
     x: 912
     y: 0
     width: 368
@@ -991,6 +1155,7 @@ MonoBehaviour:
   m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &15
+ main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1010,9 +1175,15 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+ AxelPlayer
+    x: 918.6667
+    y: 72.66667
+    width: 360.3333
+
     x: 912
     y: 72.66667
     width: 367
+ main
     height: 566.3333
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1024,14 +1195,57 @@ MonoBehaviour:
     m_CachedPref: 160
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
+ AxelPlayer
+  m_LastInspectedObjectInstanceID: -1
+
   m_LastInspectedObjectInstanceID: 38560
+ main
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
+ AxelPlayer
+--- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687acdc95675db149bf5de5771ecac18, type: 3}
+  m_Name: SpriteEditorWindow
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 360, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Sprite Editor
+    m_Image: {fileID: 0}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 918.6667
+    y: 72.66667
+    width: 360.3333
+    height: 566.3333
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+  m_ShowAlpha: 0
+  m_MipLevel: 0
+  m_Zoom: -1
+  m_ScrollPosition: {x: 0, y: 0}
+  m_SelectedObject: {fileID: 0}
+  m_SelectedSpriteRectGUID: 5e97eb03825dee720800000000000000
+  m_LastUsedModuleTypeName: 
+--- !u!114 &15
+
 --- !u!114 &16
+ main
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1051,9 +1265,15 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+ AxelPlayer
+    x: 918.6667
+    y: 72.66667
+    width: 360.3333
+
     x: 912
     y: 72.66667
     width: 367
+ main
     height: 566.3333
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
@@ -1063,6 +1283,10 @@ MonoBehaviour:
     m_CachedPref: 50
     m_ControlHash: 1964396721
     m_PrefName: Preview_TilemapBrushInspector
+ AxelPlayer
+  m_Palette: {fileID: 730989888086636210, guid: a3c4cc556e0bed24d8afe64bec0fc725, type: 3}
+
   m_Palette: {fileID: 5060840532165854503, guid: b43872c02d9d29e40b418c23e9df4348, type: 3}
+ main
   m_DrawGridGizmo: 1
   m_DrawGizmos: 0

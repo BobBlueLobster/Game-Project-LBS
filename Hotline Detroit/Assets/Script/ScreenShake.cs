@@ -27,23 +27,14 @@ public class ScreenShake : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shootTimer -= Time.deltaTime;
-        if(playerScript.hasGun == true && gunScript.magazineCur > 0)
+        if(playerScript.curWeapon == 1)
         {
-            if (shootTimer < 0)
-            {
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (playerScript.hasGun == true)
-                    {
-                        StartShake(.1f, 0.2f);
-                    }
-                    shootTimer = .4f;
-                }
-            }
+            PistolShake();
         }
-        
-        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        if(playerScript.curWeapon == 2)
+        {
+            ShotgunShake();
+        }
 
     }
 
@@ -64,5 +55,46 @@ public class ScreenShake : MonoBehaviour
     {
         shakeTimeRemaining = length;
         shakePower = power;
+    }
+
+    void PistolShake()
+    {
+        shootTimer -= Time.deltaTime;
+        if (playerScript.hasGun == true && gunScript.magazineCur > 0)
+        {
+            if (shootTimer < 0)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (playerScript.hasGun == true)
+                    {
+                        StartShake(.1f, 0.2f);
+                    }
+                    shootTimer = .4f;
+                }
+            }
+        }
+
+        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+    }
+    void ShotgunShake()
+    {
+        shootTimer -= Time.deltaTime;
+        if (playerScript.hasShotgun == true && gunScript.magazineCur > 0)
+        {
+            if (shootTimer < 0)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (playerScript.hasGun == true)
+                    {
+                        StartShake(.1f, 0.2f);
+                    }
+                    shootTimer = .4f;
+                }
+            }
+        }
+
+        transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
     }
 }

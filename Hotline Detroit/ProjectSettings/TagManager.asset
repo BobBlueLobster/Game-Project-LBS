@@ -11,7 +11,11 @@ TagManager:
   - Pistol
   - Shotgun
   - Gun
+ AxelPlayer
+  - Pellet
+
   - Enemy
+ main
   layers:
   - Default
   - TransparentFX
