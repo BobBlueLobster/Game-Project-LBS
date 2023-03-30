@@ -7,8 +7,8 @@ public class PlayerAnimations : MonoBehaviour
 {
     private Animator animator;
 
-    float horizontal;
-    float vertical;
+    public float horizontal;
+    public float vertical;
 
     public Player playerScript;
     public Gun gunScript;
@@ -30,12 +30,13 @@ public class PlayerAnimations : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
+        /*
         if(playerScript.curHP <= 0)
         {
             animator.SetBool("Dead", true);
             animator.SetFloat("Speed", 0);
         }
+        */
 
         if (!playerScript.hasGun)
         {   //Unarmed
@@ -47,6 +48,7 @@ public class PlayerAnimations : MonoBehaviour
             if (horizontal != 0 || vertical != 0 && !Input.GetKey(KeyCode.LeftShift))
             {
                 animator.SetFloat("Speed", 0.5f);
+                Debug.Log("kokoko");
             }
             if (Input.GetKey(KeyCode.LeftShift) && horizontal != 0 || vertical != 0 && Input.GetKey(KeyCode.LeftShift))
             {
