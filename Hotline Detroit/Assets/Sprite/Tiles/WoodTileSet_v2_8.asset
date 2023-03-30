@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Tilesets1_0
+  m_Name: WoodTileSet_v2_8
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1636148139, guid: e41f2468bddba944883b5399bd0353cf, type: 3}
+  m_Sprite: {fileID: 530446470, guid: 67fa761a46702c842a657d44406ddad7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
