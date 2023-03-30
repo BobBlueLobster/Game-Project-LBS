@@ -5,7 +5,8 @@ using UnityEngine;
 public class Shotgun : MonoBehaviour
 {
     private int curAmmo;
-    private int maxAmmo = 5;
+    private int maxAmmo = 2;
+    private int spareAmmo;
 
     public GameObject bulletPre;
     public Transform bulletSpawn;
@@ -24,9 +25,31 @@ public class Shotgun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if(curAmmo > 0)
         {
-            FireGun();
+            if (Input.GetMouseButtonDown(0))
+            {
+                FireGun();
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            Reload();
+        }
+    }
+
+    void Reload()
+    {
+        if(spareAmmo >= 2)
+        {
+            curAmmo += maxAmmo;
+            spareAmmo -= 2;
+        }
+        if(spareAmmo =< 2)
+        {
+            curAmmo = spareAmmo;
+            spareAmmo = 0;
         }
     }
 
