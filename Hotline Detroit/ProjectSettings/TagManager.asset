@@ -11,20 +11,17 @@ TagManager:
   - Pistol
   - Shotgun
   - Gun
- AxelPlayer
   - Pellet
-
-  - Enemy
- main
+  - Shells
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Obstacles
+  - 
   - Water
   - UI
-  - Player
-  - Enemy
+  - 
+  - 
   - 
   - 
   - 

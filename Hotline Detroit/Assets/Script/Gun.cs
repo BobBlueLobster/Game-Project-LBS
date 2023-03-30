@@ -81,7 +81,7 @@ public class Gun : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.R))
         {
             audioSource.PlayOneShot(reloading, 0.5f);
-            Invoke("Reload", 3);
+            Invoke("Reload", 2);
         }
 
         //THIS IS FOR TESTING DELETE LATER

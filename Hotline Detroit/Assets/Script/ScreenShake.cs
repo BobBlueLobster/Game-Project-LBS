@@ -14,6 +14,9 @@ public class ScreenShake : MonoBehaviour
     public GameObject theGun;
     private Gun gunScript;
 
+    public GameObject theShotgun;
+    private Shotgun shotgunScript;
+
     private float shootTimer;
 
     void Start()
@@ -22,6 +25,8 @@ public class ScreenShake : MonoBehaviour
         playerScript = thePlayer.GetComponent<Player>();
 
         gunScript = theGun.GetComponent<Gun>();
+
+        shotgunScript = theShotgun.GetComponent<Shotgun>();
     }
 
     // Update is called once per frame
@@ -80,7 +85,7 @@ public class ScreenShake : MonoBehaviour
     void ShotgunShake()
     {
         shootTimer -= Time.deltaTime;
-        if (playerScript.hasShotgun == true && gunScript.magazineCur > 0)
+        if (playerScript.hasShotgun == true && shotgunScript.curAmmo > 0)
         {
             if (shootTimer < 0)
             {
@@ -90,7 +95,7 @@ public class ScreenShake : MonoBehaviour
                     {
                         StartShake(.1f, 0.2f);
                     }
-                    shootTimer = .4f;
+                    shootTimer = .75f;
                 }
             }
         }
