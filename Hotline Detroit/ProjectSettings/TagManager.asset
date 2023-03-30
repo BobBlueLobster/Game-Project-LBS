@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - Pistol
   - Shotgun
+  - Gun
+  - Pellet
   layers:
   - Default
   - TransparentFX

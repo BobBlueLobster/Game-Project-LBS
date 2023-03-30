@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
     float horizontal;
     float vertical;
 
-    public int enemyMaxHP = 5;
-    public int enemyCurHP;
+    public float enemyMaxHP = 9;
+    public float enemyCurHP;
 
     public bool hasEvilGun;
 
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (enemyCurHP == 0)
+        if (enemyCurHP <= 0f)
         {
             animator.SetBool("Dead", true);
             animator.SetFloat("Speed", 0);
@@ -65,7 +65,13 @@ public class Enemy : MonoBehaviour
     {
         if(col.gameObject.tag == "Bullet")
         {
-            enemyCurHP--;
+            enemyCurHP = enemyCurHP - 3f;
+            Destroy(col.gameObject);
+        }
+
+        if(col.gameObject.tag == "Pellet")
+        {
+            enemyCurHP =- 1.5f;
             Destroy(col.gameObject);
         }
     }

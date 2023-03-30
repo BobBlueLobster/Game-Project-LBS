@@ -12,6 +12,8 @@ public class Shotgun : MonoBehaviour
 
     public float fireVelocity = 65;
 
+    public Transform player;
+
     public float maxSpread;
     public int bulletsShot;
 
@@ -30,11 +32,23 @@ public class Shotgun : MonoBehaviour
 
     void FireGun()
     {
-        Vector2 dir = new Vector2(Random.Range(-maxSpread, maxSpread), Random.Range(-maxSpread, maxSpread));
+        for(int i = 0; i<bulletsShot; i++)
+        {
+            Quaternion newRot = bulletSpawn.rotation;
 
-        GameObject bullet = Instantiate(bulletPre, bulletSpawn.position, bulletSpawn.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            float addedoffset = Random.Range(-maxSpread, maxSpread);
 
-        rb.AddForce(bulletSpawn.right * fireVelocity, ForceMode2D.Impulse);
+            newRot = Quaternion.Euler(bulletSpawn.eulerAngles.x, bulletSpawn.eulerAngles.y, bulletSpawn.eulerAngles.z + addedoffset);
+
+            bulletSpawn.rotation = newRot;
+
+            GameObject bullet = Instantiate(bulletPre, bulletSpawn.position, bulletSpawn.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+            rb.AddForce(bulletSpawn.right * fireVelocity, ForceMode2D.Impulse);
+
+
+            bulletSpawn.rotation = player.transform.rotation;
+        }
     }
 }

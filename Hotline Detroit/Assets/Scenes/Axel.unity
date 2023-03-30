@@ -246,9 +246,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPre: {fileID: 7289966079680537734, guid: bc726b62b9d1c1f40ae92444280142e9, type: 3}
   bulletSpawn: {fileID: 934273036}
-  fireVelocity: 40
-  maxSpread: 0
-  bulletsShot: 0
+  fireVelocity: 32
+  player: {fileID: 1310346774425815697}
+  maxSpread: 5
+  bulletsShot: 6
 --- !u!1 &220490983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,7 +1136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &793421910
 Transform:
   m_ObjectHideFlags: 0
@@ -3733,6 +3734,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6621019053343300334, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
+      propertyPath: enemyMaxHP
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6621019053435632616, guid: bf00d3f8d956fef46b5582ad46752411, type: 3}
       propertyPath: m_Name
       value: Enemy
