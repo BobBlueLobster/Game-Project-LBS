@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - Pistol
   - Shotgun
+  - Gun
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Enemy
   - 
   - 
   - 

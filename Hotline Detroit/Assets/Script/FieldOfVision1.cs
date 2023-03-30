@@ -23,11 +23,15 @@ namespace Pathfinding
         public AIDestinationSetter destSet;
         public Patrol patrol;
 
+        private GameObject grid;
+        public Gun gun;
+
         public bool CanSeePlayer { get; private set; }
         static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
         //canShoot bool for when enemy is chasing player
         private bool canShoot;
+        public bool heardPlayer;
         
 
         //Check the original FieldOfVision if you need to revert back to the old code
@@ -36,6 +40,8 @@ namespace Pathfinding
             //playerRef = GameObject.FindGameObjectWithTag("Player");
             //playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             //StartCoroutine(FOVCheck());
+            grid = GameObject.Find("Grid");
+            gun = GameObject.Find("Gun").GetComponent<Gun>();
             FOVOn = true;
         }
 
@@ -47,6 +53,7 @@ namespace Pathfinding
             {
                 Debug.Log("SWITCH");
                 waitForSwitch = false;
+                heardPlayer = false;
             }
             else
             {
@@ -88,11 +95,16 @@ namespace Pathfinding
                 canShoot = true;
             }
 
-            if (canShoot == true)
+            if (heardPlayer == true)
             {
-
+                destSet.enabled = true;
+                patrol.enabled = false;
+                destSet.target = gun.temporaryGunObject.transform;
+                waitForSwitch = true;
             }
         }
+
+        
 
         private void ForgetIt()
         {
@@ -134,6 +146,7 @@ namespace Pathfinding
                     {
                         CanSeePlayer = true;
                         FOVOn = false;
+                        destSet.target = target;
                     }
                     else
                     {

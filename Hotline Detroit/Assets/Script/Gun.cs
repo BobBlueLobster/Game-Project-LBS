@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 
 public class Gun : MonoBehaviour
@@ -14,6 +15,14 @@ public class Gun : MonoBehaviour
     private float shootTimer;
 
     public Player playerScript;
+    public Transform playerTransform;
+    public Enemy enemyScript;
+
+    private GameObject gun;
+
+    public FieldOfVision1 fov1;
+    public AIDestinationSetter aiDest;
+    
 
     private int magazineMax = 7;
     public int magazineCur;
@@ -23,6 +32,13 @@ public class Gun : MonoBehaviour
     public AudioClip reloading;
     public AudioSource audioSource;
 
+    //variables for on sound enemy follow
+    public Collider2D[] possibleEnemiesWhoHeardMe;
+    public GameObject temporaryGunObject;
+    public int range = 100;
+    private LayerMask enemyLayer;
+
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -31,7 +47,13 @@ public class Gun : MonoBehaviour
 
         shootTimer = 0.5f;
 
+        gun = GameObject.Find("Gun");
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+        playerTransform = GameObject.Find("PlayerTransform").GetComponent<Transform>();
+        enemyScript = GameObject.Find("EnemySprite").GetComponent<Enemy>();
+        fov1 = GameObject.Find("Enemy").GetComponent<FieldOfVision1>();
+        aiDest = GameObject.Find("Enemy").GetComponent<AIDestinationSetter>();
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     void Update()
@@ -61,6 +83,36 @@ public class Gun : MonoBehaviour
             audioSource.PlayOneShot(reloading, 0.5f);
             Invoke("Reload", 3);
         }
+
+        //THIS IS FOR TESTING DELETE LATER
+        //if (Input.GetKeyUp(KeyCode.Q))
+        //{
+        //    audioSource.PlayOneShot(shooting, 0.5f);
+        //    Debug.Log("pew");
+        //}
+        //END OF THE TESTING SCRIPT
+
+        possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
+            {
+                {
+                    temporaryGunTransform(gun, transform);
+                    fov1.heardPlayer = true;
+                    Debug.Log("pewpew");
+                }
+            }
+        }
+    }
+
+    public void temporaryGunTransform(GameObject obj, Transform newTransform)
+    {
+        GameObject tempObj = new GameObject("Temp Transform");
+        tempObj.transform.position = obj.transform.position;
+        tempObj.transform.rotation = obj.transform.rotation;
+
+        temporaryGunObject = tempObj;
     }
 
     void Reload()
