@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
 
     float horizontal;
     float vertical;
+     
 
     public float enemyMaxHP = 9;
     public float enemyCurHP;
@@ -58,8 +59,8 @@ public class Enemy : MonoBehaviour
         {
             animator.SetFloat("Speed", 1.5f);
         }
-
     }
+
     
     void OnCollisionEnter2D(Collision2D col)
     {
