@@ -46,7 +46,7 @@ public class Shotgun : MonoBehaviour
             curAmmo += maxAmmo;
             spareAmmo -= 2;
         }
-        if(spareAmmo =< 2)
+        if(spareAmmo <= 2)
         {
             curAmmo = spareAmmo;
             spareAmmo = 0;
