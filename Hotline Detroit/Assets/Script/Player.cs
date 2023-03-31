@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     public Gun gunScript;
     public Move moveScript;
     public PlayerRotate rotateScript;
+    public Shotgun shotgunScript;
 
     public PlayerBars humanityBar;
 
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
         moveScript = GameObject.Find("TestPlayer2").GetComponent<Move>();
         rotateScript = GameObject.Find("PlayerTransform").GetComponent<PlayerRotate>();
 
+        shotgunScript = shotgun.GetComponent<Shotgun>();
 
         healthBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
         humanityBar = GameObject.Find("HPbar").GetComponent<PlayerBars>();
@@ -120,6 +122,14 @@ public class Player : MonoBehaviour
 
             Destroy(col.gameObject);
             Debug.Log(ammoCount);
+        }
+
+        if(col.gameObject.tag == "Shells")
+        {
+            shotgunScript.spareAmmo += 4;
+
+            Destroy(col.gameObject);
+            Debug.Log(shotgunScript.spareAmmo);
         }
         
         if(col.gameObject.tag == "Pistol")

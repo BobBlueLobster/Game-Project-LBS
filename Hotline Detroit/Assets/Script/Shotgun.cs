@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
-    private int curAmmo;
+    public int curAmmo;
     private int maxAmmo = 2;
-    private int spareAmmo;
+    public int spareAmmo;
+
+    private float shootTimer;
 
     public GameObject bulletPre;
     public Transform bulletSpawn;
@@ -21,21 +23,27 @@ public class Shotgun : MonoBehaviour
     void Start()
     {
         curAmmo = 0;
+
+        shootTimer = 0.75f;
     }
 
     void Update()
     {
-        if(curAmmo > 0)
+        shootTimer -= Time.deltaTime;
+
+        if (curAmmo > 0 && shootTimer < 0)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 FireGun();
+                shootTimer = 0.75f;
+                curAmmo--;
             }
         }
 
         if(Input.GetKeyUp(KeyCode.R))
         {
-            Reload();
+            Invoke("Reload", 3f);
         }
     }
 
@@ -43,10 +51,10 @@ public class Shotgun : MonoBehaviour
     {
         if(spareAmmo >= 2)
         {
-            curAmmo += maxAmmo;
+            curAmmo = maxAmmo;
             spareAmmo -= 2;
         }
-        if(spareAmmo <= 2)
+        if(spareAmmo <= 2 && curAmmo == 0)
         {
             curAmmo = spareAmmo;
             spareAmmo = 0;
