@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
     public float horizontal;
     public float vertical;
 
     public Player playerScript;
+    public GameObject thePlayer;
     public Gun gunScript;
 
     private float shootTimer = 0.1f;
@@ -21,7 +22,7 @@ public class PlayerAnimations : MonoBehaviour
 
         animator = GetComponent<Animator>();
 
-        playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+        playerScript = thePlayer.GetComponent<Player>();
     }
 
     void Update()
@@ -30,6 +31,20 @@ public class PlayerAnimations : MonoBehaviour
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
+
+        if (playerScript.hasGun == false)
+        {
+            if(horizontal == 0 || vertical == 0)
+            {
+                //idle unarmed
+                animator.SetFloat("Speed", 0f);
+            }
+            if(horizontal != 0 || vertical != 0)
+            {
+                animator.SetFloat("Speed", 0.5f);
+            }
+        }
+
         /*
         if(playerScript.curHP <= 0)
         {
@@ -37,7 +52,7 @@ public class PlayerAnimations : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
         */
-
+        /*
         if (!playerScript.hasGun)
         {   //Unarmed
             if (horizontal == 0 || vertical == 0)
@@ -45,7 +60,7 @@ public class PlayerAnimations : MonoBehaviour
                 //idle anim
                 animator.SetFloat("Speed", 0);
             }
-            if (horizontal != 0 || vertical != 0 && !Input.GetKey(KeyCode.LeftShift))
+            if (horizontal != 0 || vertical != 0)
             {
                 animator.SetFloat("Speed", 0.5f);
                 Debug.Log("kokoko");
@@ -84,8 +99,9 @@ public class PlayerAnimations : MonoBehaviour
                 }
             }
         }
+    */
     }
-
+    
     void ShootAnim()
     {
         animator.SetBool("Firing", false);
