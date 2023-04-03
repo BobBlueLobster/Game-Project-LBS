@@ -1,6 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
+
 
 public class FlickeringLight : MonoBehaviour
 {
@@ -11,24 +13,33 @@ public class FlickeringLight : MonoBehaviour
     public float intensityTimeMin;
     public float intensityTimeMax;
 
-    private IEnumerator FlickIntensity()
-    {
-        float t0 = Time.time;
-        float t = t0;
-        WaitUntil wait = new WaitUntil(() => Time.time > t0 + t);
-        yield return new WaitForSeconds(Random.Range(0.01f, 0.5f));
+    [SerializeField] float firstValue = 0f;
+    [SerializeField] float secondValue = 0.36f;
+    [SerializeField] float secondsBetweenFlickers = 2f;
 
-        while (true)
+    private bool lightTrue = true;
+
+    public Light2D renderLight;
+
+    void Start()
+    {
+        renderLight.intensity = renderLight.intensity;
+        StartCoroutine(TimerLight());
+    }
+ main
+
+    private void Awake()
+    {
+        renderLight = GetComponent​<UnityEngine.Rendering.Universal.Light2D>();
+    }
+
+    IEnumerator TimerLight()
+    {
+        while (lightTrue == true)
         {
-            if (flickIntensity)
-            {
-                t0 = Time.time;
-                float r = Random.Range(_baseIntensity - intensityRange, _baseIntensity + intensityRange);
-                _light.intensity = r;
-                t = Random.Range(intensityTimeMin, intensityTimeMax);
-                yield return wait;
-            }
-            else yield return null;
+            renderLight.intensity = Random.Range(firstValue, secondValue);
+            var randomTime = Random.Range(0, secondsBetweenFlickers);
+            yield return new WaitForSeconds(randomTime);
         }
     }
 }
