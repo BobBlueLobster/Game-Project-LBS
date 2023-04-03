@@ -7,7 +7,7 @@ public class FlickeringLight : MonoBehaviour
     public float intensityRange;
     public bool flickIntensity;
     public float _baseIntensity;
-    public Light2D _light;
+    public UnityEngine.Rendering.Universal.Light2D _light;
     public float intensityTimeMin;
     public float intensityTimeMax;
 
