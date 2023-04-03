@@ -6,6 +6,13 @@ using UnityEngine.Rendering.Universal;
 
 public class FlickeringLight : MonoBehaviour
 {
+    public float intensityRange;
+    public bool flickIntensity;
+    public float _baseIntensity;
+    public UnityEngine.Rendering.Universal.Light2D _light;
+    public float intensityTimeMin;
+    public float intensityTimeMax;
+
     [SerializeField] float firstValue = 0f;
     [SerializeField] float secondValue = 0.36f;
     [SerializeField] float secondsBetweenFlickers = 2f;
@@ -19,6 +26,7 @@ public class FlickeringLight : MonoBehaviour
         renderLight.intensity = renderLight.intensity;
         StartCoroutine(TimerLight());
     }
+ main
 
     private void Awake()
     {
