@@ -5750,7 +5750,7 @@ MonoBehaviour:
   intensityRange: 0.14
   flickIntensity: 1
   _baseIntensity: 0
-  _light: {fileID: 0}
+  _light: {fileID: 753092645}
   intensityTimeMin: 0.05
   intensityTimeMax: 0.1
  cc2dc6a5c47e768cca35531eee83edc32d7833b9

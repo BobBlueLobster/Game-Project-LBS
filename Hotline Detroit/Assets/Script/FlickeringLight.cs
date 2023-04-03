@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class FlickeringLight : MonoBehaviour
 {
+    
     public float intensityRange;
     public bool flickIntensity;
     public float _baseIntensity;
@@ -31,4 +33,5 @@ public class FlickeringLight : MonoBehaviour
             else yield return null;
         }
     }
+    
 }
