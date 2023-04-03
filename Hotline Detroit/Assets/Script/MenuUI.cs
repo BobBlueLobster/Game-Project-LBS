@@ -14,6 +14,6 @@ public class MenuUI : MonoBehaviour
 
     public void Exit()
     {
-
+        Application.Quit();
     }
 }
