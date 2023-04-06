@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
 
-    private bool gameIsPaused;
+    public static bool gameIsPaused;
 
     public GameObject pauseMenuUI;
 
