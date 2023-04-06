@@ -8,6 +8,10 @@ public class Shotgun : MonoBehaviour
     private int maxAmmo = 2;
     public int spareAmmo;
 
+    public AudioClip shoot;
+    public AudioClip reload;
+    public AudioSource audioSource;
+
     private float shootTimer;
 
     public GameObject bulletPre;
@@ -25,6 +29,8 @@ public class Shotgun : MonoBehaviour
         curAmmo = 0;
 
         shootTimer = 0.75f;
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -35,15 +41,17 @@ public class Shotgun : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                audioSource.PlayOneShot(shoot, 0.5f);
                 FireGun();
-                shootTimer = 0.75f;
+                shootTimer = 0.2f;
                 curAmmo--;
             }
         }
 
         if(Input.GetKeyUp(KeyCode.R))
         {
-            Invoke("Reload", 3f);
+            audioSource.PlayOneShot(reload, 0.5f);
+            Invoke("Reload", 5f);
         }
     }
 

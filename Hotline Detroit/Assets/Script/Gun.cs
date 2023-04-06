@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System;
 
 
 public class Gun : MonoBehaviour
@@ -22,9 +23,10 @@ public class Gun : MonoBehaviour
 
     public FieldOfVision1 fov1;
     public AIDestinationSetter aiDest;
-    
 
-    private int magazineMax = 7;
+    private bool isReloading = false;
+
+    private int magazineMax = 6;
     public int magazineCur;
     private int magNeeded;
 
@@ -64,7 +66,7 @@ public class Gun : MonoBehaviour
 
         if (playerScript.hasGun)
         {
-            if(magazineCur > 0)
+            if(magazineCur > 0 && playerScript.ammoCount > 0)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -78,10 +80,15 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-        if(Input.GetKeyUp(KeyCode.R))
+
+        if (!isReloading && magazineCur < magazineMax)
         {
-            audioSource.PlayOneShot(reloading, 0.5f);
-            Invoke("Reload", 2);
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                audioSource.PlayOneShot(reloading, 0.5f);
+                isReloading = true;
+                Invoke("Reload", 3.5f);
+            }
         }
 
         //THIS IS FOR TESTING DELETE LATER
@@ -117,17 +124,24 @@ public class Gun : MonoBehaviour
 
     void Reload()
     {
-        if(playerScript.ammoCount >= 7)
+        if(magazineCur < magazineMax)
         {
-            magazineCur += magazineMax;
-            playerScript.ammoCount -= 7;
+            magNeeded = magazineMax - magazineCur;
+            magazineCur += Math.Min(magNeeded, playerScript.ammoCount);
+            isReloading = false;
+            playerScript.ammoCount -= Math.Min(magNeeded, playerScript.ammoCount);
         }
+
+
+        /*
         if(magazineCur == 0)
         {
             magazineCur = playerScript.ammoCount;
             playerScript.ammoCount = 0;
+            isReloading = false;
         }
-        
+        */
+
         /*
         if(playerScript.ammoCount >= magNeeded)
         {
@@ -135,7 +149,7 @@ public class Gun : MonoBehaviour
             playerScript.ammoCount -= magNeeded;
         }
         */
-        
+
     }
 
     void FirePistol()
