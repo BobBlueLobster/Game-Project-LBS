@@ -28,6 +28,9 @@ namespace Pathfinding {
 			if (ai != null)
 			{
 				ai.onSearchPath += Update;
+
+				//this should rotate towards the player if the code isnt disabled so if no target then no rotation
+				//DO NOT PUT IN UPDATE, for some reason it changes the y rotation to -90
 				ai.rotation = Quaternion.LookRotation(target.position);
 			}
 		}
@@ -38,7 +41,10 @@ namespace Pathfinding {
 
 		/// <summary>Updates the AI's destination every frame</summary>
 		void Update () {
-			if (target != null && ai != null) ai.destination = target.position;
+			if (target != null && ai != null)
+			{
+				ai.destination = target.position;
+			}
 		}
 	}
 }
