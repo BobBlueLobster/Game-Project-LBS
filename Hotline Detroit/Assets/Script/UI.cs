@@ -32,11 +32,13 @@ public class UI : MonoBehaviour
 
         _image = revolverUI.GetComponent<Image>();
 
-        animator = GetComponent<Animator>();
+        animator = revolverUI.GetComponent<Animator>();
     }
 
     void Update()
     {
+        //Quaternion uiRot = revolverUI.transform.rotation;
+
         if(gunScript.magazineCur == 0)
         {
             _image.sprite = a_zero;
@@ -44,26 +46,42 @@ public class UI : MonoBehaviour
         if (gunScript.magazineCur == 1)
         {
             _image.sprite = a_one;
+            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -300));
         }
         if (gunScript.magazineCur == 2)
         {
             _image.sprite = a_two;
+            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -240));
         }
         if (gunScript.magazineCur == 3)
         {
             _image.sprite = a_three;
+            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -180));
         }
         if (gunScript.magazineCur == 4)
         {
             _image.sprite = a_four;
+            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -120));
         }
         if (gunScript.magazineCur == 5)
         {
             _image.sprite = a_five;
+            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -60));
         }
         if (gunScript.magazineCur == 6)
         {
             _image.sprite = a_six;
+        }
+
+        if(gunScript.isReloading == true)
+        {
+            animator.SetFloat("Reloading", 1);
+            animator.gameObject.GetComponent<Animator>().enabled = true;
+        }
+        if (gunScript.isReloading == false)
+        {
+            animator.SetFloat("Reloading", 0);
+            animator.gameObject.GetComponent<Animator>().enabled = false;
         }
 
         /*

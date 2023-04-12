@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     public FieldOfVision1 fov1;
     public AIDestinationSetter aiDest;
 
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     private int magazineMax = 6;
     public int magazineCur;
@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
 
         if (playerScript.hasGun)
         {
-            if(magazineCur > 0 && playerScript.ammoCount > 0)
+            if(magazineCur > 0 && playerScript.ammoCount >= 0)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
