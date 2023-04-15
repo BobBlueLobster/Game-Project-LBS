@@ -16,6 +16,10 @@ public class PlayerAnimations : MonoBehaviour
 
     private float shootTimer = 0.1f;
 
+    private int shotgunLayerIndex;
+
+    public float animWeight = 0.7f;
+
     void Start()
     {
         gunScript = GameObject.Find("Gun").GetComponent<Gun>();
@@ -23,6 +27,8 @@ public class PlayerAnimations : MonoBehaviour
         animator = GetComponent<Animator>();
 
         playerScript = thePlayer.GetComponent<Player>();
+
+        shotgunLayerIndex = animator.GetLayerIndex("ShotGun");
     }
 
     void Update()
@@ -40,6 +46,44 @@ public class PlayerAnimations : MonoBehaviour
                 animator.SetFloat("Speed", 0f);
             }
             if(horizontal != 0 || vertical != 0)
+            {
+                animator.SetFloat("Speed", 0.5f);
+            }
+        }
+
+        if(playerScript.curWeapon == 2)
+        {
+            animator.SetLayerWeight(1, animWeight);
+            animator.SetLayerWeight(2, 0f);
+        }
+        if (playerScript.curWeapon == 1)
+        {
+            animator.SetLayerWeight(1, 0f);
+            animator.SetLayerWeight(2, animWeight);
+        }
+
+        if (playerScript.curWeapon == 1)
+        {
+
+            if (horizontal == 0 || vertical == 0)
+            {
+                //idle unarmed
+                animator.SetFloat("Speed", 0f);
+            }
+            if (horizontal != 0 || vertical != 0)
+            {
+                animator.SetFloat("Speed", 0.5f);
+            }
+        }
+        if (playerScript.curWeapon == 2)
+        {
+
+            if (horizontal == 0 || vertical == 0)
+            {
+                //idle unarmed
+                animator.SetFloat("Speed", 0f);
+            }
+            if (horizontal != 0 || vertical != 0)
             {
                 animator.SetFloat("Speed", 0.5f);
             }

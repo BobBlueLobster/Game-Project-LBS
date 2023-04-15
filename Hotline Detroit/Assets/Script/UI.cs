@@ -11,11 +11,21 @@ public class UI : MonoBehaviour
     public Player playerScript;
 
     public Gun gunScript;
+    public Shotgun shotgunScript;
+    public GameObject shotgunObj;
 
-    public Image _image;
+    public Image _imageRev;
+    public Image _imageShot;
 
     public GameObject revolverUI;
+    public GameObject shotgunUI;
 
+
+    public Sprite s_zero;
+    public Sprite s_one;
+    public Sprite s_two;
+
+    public GameObject backgoundRev;
     public Sprite a_zero;
     public Sprite a_one;
     public Sprite a_two;
@@ -24,56 +34,79 @@ public class UI : MonoBehaviour
     public Sprite a_five;
     public Sprite a_six;
 
-
     void Start()
     {
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
         gunScript = GameObject.Find("Gun").GetComponent<Gun>();
 
-        _image = revolverUI.GetComponent<Image>();
+        shotgunScript = shotgunObj.GetComponent<Shotgun>();
+
+        _imageRev = revolverUI.GetComponent<Image>();
+        _imageShot = shotgunUI.GetComponent<Image>();
 
         animator = revolverUI.GetComponent<Animator>();
     }
 
     void Update()
     {
-        //Quaternion uiRot = revolverUI.transform.rotation;
-
-        if(gunScript.magazineCur == 0)
+        if (playerScript.curWeapon == 1)
         {
-            _image.sprite = a_zero;
+            revolverUI.SetActive(true);
+            backgoundRev.SetActive(true);
+            shotgunUI.SetActive(false);
+        }
+        if (playerScript.curWeapon == 2)
+        {
+            revolverUI.SetActive(false);
+            backgoundRev.SetActive(false);
+            shotgunUI.SetActive(true);
+        }
+
+        if (gunScript.magazineCur == 0)
+        {
+            _imageRev.sprite = a_zero;
         }
         if (gunScript.magazineCur == 1)
         {
-            _image.sprite = a_one;
-            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -300));
+            _imageRev.sprite = a_one;
         }
         if (gunScript.magazineCur == 2)
         {
-            _image.sprite = a_two;
-            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -240));
+            _imageRev.sprite = a_two;
         }
         if (gunScript.magazineCur == 3)
         {
-            _image.sprite = a_three;
-            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -180));
+            _imageRev.sprite = a_three;
         }
         if (gunScript.magazineCur == 4)
         {
-            _image.sprite = a_four;
-            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -120));
+            _imageRev.sprite = a_four;
+
         }
         if (gunScript.magazineCur == 5)
         {
-            _image.sprite = a_five;
-            revolverUI.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -60));
+            _imageRev.sprite = a_five;
         }
         if (gunScript.magazineCur == 6)
         {
-            _image.sprite = a_six;
+            _imageRev.sprite = a_six;
         }
 
-        if(gunScript.isReloading == true)
+
+        if (shotgunScript.curAmmo == 2)
+        {
+            _imageShot.sprite = s_two;
+        }
+        if (shotgunScript.curAmmo == 1)
+        {
+            _imageShot.sprite = s_one;
+        }
+        if (shotgunScript.curAmmo == 0)
+        {
+            _imageShot.sprite = s_zero;
+        }
+
+        if (gunScript.isReloading == true)
         {
             animator.SetFloat("Reloading", 1);
             animator.gameObject.GetComponent<Animator>().enabled = true;

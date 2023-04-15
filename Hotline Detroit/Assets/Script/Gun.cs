@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
 
         if (playerScript.hasGun)
         {
-            if(magazineCur > 0 && playerScript.ammoCount >= 0)
+            if(magazineCur > 0 && playerScript.ammoCount >= 0 && isReloading == false)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -81,13 +81,13 @@ public class Gun : MonoBehaviour
             }
         }
 
-        if (!isReloading && magazineCur < magazineMax)
+        if (!isReloading && magazineCur < magazineMax && playerScript.ammoCount > 0)
         {
             if (Input.GetKeyUp(KeyCode.R))
             {
                 audioSource.PlayOneShot(reloading, 0.5f);
                 isReloading = true;
-                Invoke("Reload", 3.5f);
+                Invoke("Reload", 3.7f);
             }
         }
 
