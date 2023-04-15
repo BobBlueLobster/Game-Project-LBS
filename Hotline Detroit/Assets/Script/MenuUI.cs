@@ -9,11 +9,12 @@ public class MenuUI : MonoBehaviour
     
     public void Play()
     {
-        SceneManager.LoadScene("Floor1");
+        SceneManager.LoadScene("L1F1");
     }
 
     public void Exit()
     {
         Application.Quit();
+        Debug.Log("Quit");
     }
 }

@@ -273,7 +273,7 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 720
   slowdownDistance: 6
-  pickNextWaypointDist: 2
+  pickNextWaypointDist: 1
   endReachedDistance: 2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 0
@@ -332,6 +332,8 @@ MonoBehaviour:
   aipath: {fileID: 2069301415290051676}
   destSet: {fileID: 8877403913680158809}
   patrol: {fileID: 2353554748994097646}
+  gun: {fileID: 0}
+  heardPlayer: 0
 --- !u!114 &594383853400842611
 MonoBehaviour:
   m_ObjectHideFlags: 0
