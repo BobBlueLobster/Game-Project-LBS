@@ -30,8 +30,6 @@ namespace Pathfinding
         static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
         //canShoot bool for when enemy is chasing player
-        private bool canShoot;
-        public bool heardPlayer;
         
 
         //Check the original FieldOfVision if you need to revert back to the old code
@@ -53,7 +51,7 @@ namespace Pathfinding
             {
                 Debug.Log("SWITCH");
                 waitForSwitch = false;
-                heardPlayer = false;
+                gun.heardPlayer = false;
             }
             else
             {
@@ -92,10 +90,9 @@ namespace Pathfinding
                 patrol.enabled = false;
                 aipath.maxSpeed = 2;
                 waitForSwitch = true;
-                canShoot = true;
             }
 
-            if (heardPlayer == true)
+            if (gun.heardPlayer == true)
             {
                 destSet.enabled = true;
                 patrol.enabled = false;
@@ -112,7 +109,6 @@ namespace Pathfinding
             destSet.enabled = false;
             patrol.enabled = true;
             aipath.maxSpeed = 6;
-            canShoot = false;
         }
 
 

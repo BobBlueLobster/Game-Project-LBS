@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    private AIPath aiPath;
     private Collider2D enemyCollider;
     
     private Animator animator;
@@ -23,6 +25,8 @@ public class Enemy : MonoBehaviour
     {
         enemyCurHP = enemyMaxHP;
 
+        aiPath = GetComponentInParent<AIPath>();
+
         enemyCollider = GetComponent<Collider2D>();
 
         animator = GetComponent<Animator>();
@@ -41,7 +45,8 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Dead", true);
             animator.SetFloat("Speed", 0);
 
-            enemyCollider.enabled = !enemyCollider.enabled;
+            aiPath.enabled = false;
+            enemyCollider.enabled = false;
             enemyCurHP = -1;
 
             playerScript.maxHumanity -= 10;

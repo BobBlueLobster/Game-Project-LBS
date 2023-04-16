@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6621019053343300328}
   - component: {fileID: 6621019053343300329}
   - component: {fileID: 6621019053343300334}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,11 +273,11 @@ MonoBehaviour:
   maxAcceleration: -2.5
   rotationSpeed: 720
   slowdownDistance: 6
-  pickNextWaypointDist: 1
+  pickNextWaypointDist: 0.5
   endReachedDistance: 2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 0
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &8877403913680158809
 MonoBehaviour:
@@ -325,7 +325,7 @@ MonoBehaviour:
   angle: 90
   targetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   obstructionLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   bulletSpawn: {fileID: 1502660441486164404}
-  bulletPrefab: {fileID: 769616439380411192, guid: f03f20f39e1e378409e28d6326bbbd67, type: 3}
+  bulletPrefab: {fileID: 769616439380411192, guid: d41868108599fb64283ade35af4b6fe0, type: 3}
   speed: 20
   fov: {fileID: 8398689198560070794}
+  aiPath: {fileID: 0}

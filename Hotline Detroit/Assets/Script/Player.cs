@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Bullet")
+        if(col.gameObject.tag == "BulletEnemy")
         {
             //curHP--;
             Destroy(col.gameObject);

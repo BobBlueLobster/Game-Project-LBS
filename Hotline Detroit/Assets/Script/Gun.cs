@@ -24,9 +24,6 @@ public class Gun : MonoBehaviour
     public Animator muzFRev;
     public GameObject muzAnim;
 
-    public FieldOfVision1 fov1;
-    public AIDestinationSetter aiDest;
-
     public bool isReloading = false;
 
     private int magazineMax = 6;
@@ -39,6 +36,7 @@ public class Gun : MonoBehaviour
     public AudioSource audioSource;
 
     //variables for on sound enemy follow
+    public bool heardPlayer;
     public Collider2D[] possibleEnemiesWhoHeardMe;
     public GameObject temporaryGunObject;
     public int range = 100;
@@ -61,8 +59,6 @@ public class Gun : MonoBehaviour
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
         playerTransform = GameObject.Find("PlayerTransform").GetComponent<Transform>();
         enemyScript = GameObject.Find("EnemySprite").GetComponent<Enemy>();
-        fov1 = GameObject.Find("Enemy").GetComponent<FieldOfVision1>();
-        aiDest = GameObject.Find("Enemy").GetComponent<AIDestinationSetter>();
         enemyLayer = LayerMask.GetMask("Enemy");
 
         muzFRev = muzAnim.GetComponent<Animator>();
@@ -124,11 +120,12 @@ public class Gun : MonoBehaviour
         possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
         if (Input.GetKeyUp(KeyCode.Q))
         {
+            Debug.Log("pewpew2");
             foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
             {
                 {
                     temporaryGunTransform(gun, transform);
-                    fov1.heardPlayer = true;
+                    heardPlayer = true;
                     Debug.Log("pewpew");
                 }
             }
@@ -142,6 +139,19 @@ public class Gun : MonoBehaviour
         tempObj.transform.rotation = obj.transform.rotation;
 
         temporaryGunObject = tempObj;
+
+        StartCoroutine(DestroyTempTransform(obj, tempObj, 5));
+    }
+
+    IEnumerator DestroyTempTransform(GameObject obj, GameObject tempObj, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        obj.transform.parent = null;
+        obj.transform.position = tempObj.transform.position;
+        obj.transform.rotation = tempObj.transform.rotation;
+
+        Destroy(tempObj);
     }
 
     void Reload()
