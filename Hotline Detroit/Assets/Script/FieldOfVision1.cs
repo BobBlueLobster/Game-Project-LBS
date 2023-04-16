@@ -33,11 +33,20 @@ namespace Pathfinding
             //StartCoroutine(FOVCheck());
             gun = GameObject.Find("Gun").GetComponent<Gun>();
             FOVOn = true;
+            if (patrol.targets.Length == 0)
+            {
+                destSet.enabled = true;
+            }
+            else
+            {
+                patrol.enabled = true;
+                destSet.enabled = false;
+            }
         }
 
         IEnumerator CoroutineExample()
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(10);
             Debug.Log("nyeow");
             if (CanSeePlayer == false)
             {
@@ -99,10 +108,14 @@ namespace Pathfinding
         {
             FOVOn = true;
             aipath.maxSpeed = 6;
-            if (patrol.targets.Length == 0 )
+            if (patrol.targets.Length == 0)
             {
                 destSet.enabled = true;
-                destSet.target = enemy.temporaryEnemyTransform.transform;
+                destSet.target = enemy.temporaryEnemyTransform.transform; 
+                if (aipath.reachedEndOfPath == true)
+                {
+                    destSet.target = null;
+                }
             }
             else
             {
@@ -110,19 +123,6 @@ namespace Pathfinding
                 destSet.enabled = false;
             }
         }
-
-
-
-        //private IEnumerator FOVCheck()
-        //{
-        //    WaitForSeconds wait = new WaitForSeconds(0.2f);
-
-        //    while (true)
-        //    {
-        //        yield return wait;
-        //        FOV();
-        //    }
-        //}
 
         private void FOV()
         {
@@ -162,25 +162,6 @@ namespace Pathfinding
                 FOVOn = true;
             }
         }
-
-        //private void OnDrawGizmos()
-        //{
-        //    Gizmos.color = Color.white;
-        //    UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
-
-        //    Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle / 2);
-        //    Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle / 2);
-
-        //    Gizmos.color = Color.yellow;
-        //    Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
-        //    Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
-
-        //    if (CanSeePlayer)
-        //    {
-        //        Gizmos.color = Color.green;
-        //        //Gizmos.DrawLine(transform.position, playerTransform.position);
-        //    }
-        //}
 
         private Vector2 DirectionFromAngle(float eulerY, float angleInDegrees)
         {
