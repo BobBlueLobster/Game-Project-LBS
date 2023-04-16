@@ -12,9 +12,14 @@ public class Door : MonoBehaviour
     public bool openOut = false;
     public bool openIn = false;
 
+    public AudioSource audioSource;
+    public AudioClip open;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -36,6 +41,8 @@ public class Door : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
+                audioSource.PlayOneShot(open, 0.5f);
+
                 if(openOut == true)
                 {
                     animator.SetBool("Interacted", true);
