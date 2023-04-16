@@ -11,6 +11,7 @@ public class Door : MonoBehaviour
 
     public bool openOut = false;
     public bool openIn = false;
+    private bool interacted = false;
 
     public AudioSource audioSource;
     public AudioClip open;
@@ -41,9 +42,13 @@ public class Door : MonoBehaviour
         {
             if (Input.GetKeyDown("e"))
             {
-                audioSource.PlayOneShot(open, 0.5f);
+                if(interacted == false)
+                {
+                    audioSource.PlayOneShot(open, 0.5f);
+                    interacted = true;
+                }
 
-                if(openOut == true)
+                if (openOut == true)
                 {
                     animator.SetBool("Interacted", true);
                 }

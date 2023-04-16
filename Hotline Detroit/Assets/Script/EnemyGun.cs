@@ -16,6 +16,9 @@ public class EnemyGun : VersionedMonoBehaviour
     public FieldOfVision1 fov;
     public AIPath aiPath;
 
+    public AudioClip shooting;
+    public AudioSource audioSource;
+
     void Start()
     {
         shootTimer = 0.5f;
@@ -43,5 +46,7 @@ public class EnemyGun : VersionedMonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(bulletSpawn.right * speed, ForceMode2D.Impulse);
         Debug.Log("Fire");
+
+        audioSource.PlayOneShot(shooting, 0.5f);
     }
 }
