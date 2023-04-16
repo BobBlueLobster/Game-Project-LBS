@@ -19,11 +19,16 @@ public class Enemy : MonoBehaviour
 
     public bool hasEvilGun;
 
+    public FieldOfVision1 fov;
     public Player playerScript;
+    public GameObject temporaryEnemyTransform;
+    public GameObject enemysprite;
 
     void Start()
     {
         enemyCurHP = enemyMaxHP;
+
+        fov = GetComponentInParent<FieldOfVision1>();
 
         aiPath = GetComponentInParent<AIPath>();
 
@@ -32,6 +37,8 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+
+        temporaryGunTransform(enemysprite, transform);
     }
 
     void Update()
@@ -66,7 +73,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+    public void temporaryGunTransform(GameObject obj, Transform newTransform)
+    {
+        GameObject tempObj = new GameObject("Temp Enemy Transform");
+        tempObj.transform.position = obj.transform.position;
+        tempObj.transform.rotation = obj.transform.rotation;
+
+        temporaryEnemyTransform = tempObj;
+    }
+
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Bullet")

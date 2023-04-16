@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6621019053343300328}
   - component: {fileID: 6621019053343300329}
   - component: {fileID: 6621019053343300334}
+  - component: {fileID: 1631145914619685612}
   m_Layer: 8
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -169,7 +170,31 @@ MonoBehaviour:
   enemyMaxHP: 5
   enemyCurHP: 0
   hasEvilGun: 0
+  fov: {fileID: 0}
   playerScript: {fileID: 0}
+  temporaryEnemyTransform: {fileID: 0}
+  enemysprite: {fileID: 6621019053343300332}
+--- !u!50 &1631145914619685612
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6621019053343300332}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &6621019053435632616
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +358,7 @@ MonoBehaviour:
   destSet: {fileID: 8877403913680158809}
   patrol: {fileID: 2353554748994097646}
   gun: {fileID: 0}
-  heardPlayer: 0
+  enemy: {fileID: 6621019053343300334}
 --- !u!114 &594383853400842611
 MonoBehaviour:
   m_ObjectHideFlags: 0
