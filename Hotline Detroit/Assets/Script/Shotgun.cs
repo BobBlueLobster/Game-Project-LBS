@@ -30,6 +30,7 @@ public class Shotgun : MonoBehaviour
     public float maxSpread;
     public int bulletsShot;
 
+
     void Start()
     {
         curAmmo = 0;
