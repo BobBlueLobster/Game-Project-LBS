@@ -14,18 +14,20 @@ public class EnemyGun : VersionedMonoBehaviour
     private float shootTimer;
 
     public FieldOfVision1 fov;
+    public AIPath aiPath;
 
     void Start()
     {
         shootTimer = 0.5f;
         fov = GetComponent<FieldOfVision1>();
+        aiPath = GetComponent<AIPath>();
     }
 
     void Update()
     {
         shootTimer -= Time.deltaTime;
 
-        if (fov.CanSeePlayer == true)
+        if (fov.CanSeePlayer == true && aiPath.enabled)
         {
             if(shootTimer < 0)
             {

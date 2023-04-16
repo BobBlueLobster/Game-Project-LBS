@@ -28,14 +28,14 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
-        //if (Time.timeScale == 0)
-        //{
-        //    AudioListener.pause = true;
-        //}
-        //else
-        //{
-        //    AudioListener.pause = false;
-        //}
+        if (Time.timeScale == 0)
+        {
+            AudioListener.pause = true;
+        }
+        else
+        {
+            AudioListener.pause = false;
+        }
     }
 
     public void Pause()
