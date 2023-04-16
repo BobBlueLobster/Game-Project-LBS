@@ -4778,8 +4778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2098716057677604625}
-  gun: {fileID: 1085202928629925479}
-  shotgun: {fileID: 1085202927562469538}
+  gun: {fileID: 1085202928126302697}
+  shotgun: {fileID: 1085202927935562150}
 --- !u!4 &330041657
 Transform:
   m_ObjectHideFlags: 0

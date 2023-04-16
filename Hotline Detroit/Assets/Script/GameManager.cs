@@ -7,20 +7,19 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public GameObject player;
-    public GameObject gun;
-    public GameObject shotgun;
 
     private void Awake()
     {
-        if(Instance == null)
+        if(Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        
 
     }
 }
