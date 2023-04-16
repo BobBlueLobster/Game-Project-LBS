@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    private AIPath aiPath;
     private Collider2D enemyCollider;
     
     private Animator animator;
@@ -17,17 +19,26 @@ public class Enemy : MonoBehaviour
 
     public bool hasEvilGun;
 
+    public FieldOfVision1 fov;
     public Player playerScript;
+    public GameObject temporaryEnemyTransform;
+    public GameObject enemysprite;
 
     void Start()
     {
         enemyCurHP = enemyMaxHP;
+
+        fov = GetComponentInParent<FieldOfVision1>();
+
+        aiPath = GetComponentInParent<AIPath>();
 
         enemyCollider = GetComponent<Collider2D>();
 
         animator = GetComponent<Animator>();
 
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();
+
+        temporaryGunTransform(enemysprite, transform);
     }
 
     void Update()
@@ -41,7 +52,8 @@ public class Enemy : MonoBehaviour
             animator.SetBool("Dead", true);
             animator.SetFloat("Speed", 0);
 
-            enemyCollider.enabled = !enemyCollider.enabled;
+            aiPath.enabled = false;
+            enemyCollider.enabled = false;
             enemyCurHP = -1;
 
             playerScript.maxHumanity -= 10;
@@ -61,7 +73,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    
+    public void temporaryGunTransform(GameObject obj, Transform newTransform)
+    {
+        GameObject tempObj = new GameObject("Temp Enemy Transform");
+        tempObj.transform.position = obj.transform.position;
+        tempObj.transform.rotation = obj.transform.rotation;
+
+        temporaryEnemyTransform = tempObj;
+    }
+
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Bullet")

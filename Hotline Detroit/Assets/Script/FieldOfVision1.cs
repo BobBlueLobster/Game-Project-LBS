@@ -15,24 +15,15 @@ namespace Pathfinding
         public LayerMask obstructionLayer;
         public Collider2D[] rangeCheck { get; private set; }
 
-
-        //playerRef and playerTransform possibly only for drawing gizmos
         public AIPath aipath;
-        //public GameObject playerRef;
-        //public Transform playerTransform;
         public AIDestinationSetter destSet;
         public Patrol patrol;
-
-        private GameObject grid;
         public Gun gun;
+        public Enemy enemy;
 
         public bool CanSeePlayer { get; private set; }
         static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
-        //canShoot bool for when enemy is chasing player
-        private bool canShoot;
-        public bool heardPlayer;
-        
 
         //Check the original FieldOfVision if you need to revert back to the old code
         void Start()
@@ -40,7 +31,6 @@ namespace Pathfinding
             //playerRef = GameObject.FindGameObjectWithTag("Player");
             //playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             //StartCoroutine(FOVCheck());
-            grid = GameObject.Find("Grid");
             gun = GameObject.Find("Gun").GetComponent<Gun>();
             FOVOn = true;
         }
@@ -53,7 +43,7 @@ namespace Pathfinding
             {
                 Debug.Log("SWITCH");
                 waitForSwitch = false;
-                heardPlayer = false;
+                gun.heardPlayer = false;
             }
             else
             {
@@ -92,10 +82,9 @@ namespace Pathfinding
                 patrol.enabled = false;
                 aipath.maxSpeed = 2;
                 waitForSwitch = true;
-                canShoot = true;
             }
 
-            if (heardPlayer == true)
+            if (gun.heardPlayer == true)
             {
                 destSet.enabled = true;
                 patrol.enabled = false;
@@ -109,10 +98,17 @@ namespace Pathfinding
         private void ForgetIt()
         {
             FOVOn = true;
-            destSet.enabled = false;
-            patrol.enabled = true;
             aipath.maxSpeed = 6;
-            canShoot = false;
+            if (patrol.targets.Length == 0 )
+            {
+                destSet.enabled = true;
+                destSet.target = enemy.temporaryEnemyTransform.transform;
+            }
+            else
+            {
+                patrol.enabled = true;
+                destSet.enabled = false;
+            }
         }
 
 
