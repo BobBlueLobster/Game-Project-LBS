@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System;
 
 
 public class Gun : MonoBehaviour
@@ -20,15 +21,20 @@ public class Gun : MonoBehaviour
 
     private GameObject gun;
 
+    public Animator muzFRev;
+    public GameObject muzAnim;
+
     public FieldOfVision1 fov1;
     public AIDestinationSetter aiDest;
-    
 
-    private int magazineMax = 7;
+    public bool isReloading = false;
+
+    private int magazineMax = 6;
     public int magazineCur;
     private int magNeeded;
 
     public AudioClip shooting;
+    public AudioClip noAmmo;
     public AudioClip reloading;
     public AudioSource audioSource;
 
@@ -54,6 +60,8 @@ public class Gun : MonoBehaviour
         fov1 = GameObject.Find("Enemy").GetComponent<FieldOfVision1>();
         aiDest = GameObject.Find("Enemy").GetComponent<AIDestinationSetter>();
         enemyLayer = LayerMask.GetMask("Enemy");
+
+        muzFRev = muzAnim.GetComponent<Animator>();
     }
 
     void Update()
@@ -62,14 +70,18 @@ public class Gun : MonoBehaviour
 
         shootTimer -= Time.deltaTime;
 
+        if (shootTimer >= 0.05f)
+            muzFRev.SetBool("Shot", false);
+
         if (playerScript.hasGun)
         {
-            if(magazineCur > 0)
+            if(magazineCur > 0 && playerScript.ammoCount >= 0 && isReloading == false)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
                     if (shootTimer < 0)
                     {
+                        muzFRev.SetBool("Shot", true);
                         audioSource.PlayOneShot(shooting, 0.5f);
                         FirePistol();
                         shootTimer = 0.4f;
@@ -77,11 +89,24 @@ public class Gun : MonoBehaviour
                     }
                 }
             }
+            if(magazineCur == 0 && isReloading == false)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    audioSource.PlayOneShot(noAmmo, 0.5f);
+                    shootTimer = 0.4f;
+                }
+            }
         }
-        if(Input.GetKeyUp(KeyCode.R))
+
+        if (!isReloading && magazineCur < magazineMax && playerScript.ammoCount > 0)
         {
-            audioSource.PlayOneShot(reloading, 0.5f);
-            Invoke("Reload", 2);
+            if (Input.GetKeyUp(KeyCode.R))
+            {
+                audioSource.PlayOneShot(reloading, 0.5f);
+                isReloading = true;
+                Invoke("Reload", 3.7f);
+            }
         }
 
         //THIS IS FOR TESTING DELETE LATER
@@ -117,17 +142,24 @@ public class Gun : MonoBehaviour
 
     void Reload()
     {
-        if(playerScript.ammoCount >= 7)
+        if(magazineCur < magazineMax)
         {
-            magazineCur += magazineMax;
-            playerScript.ammoCount -= 7;
+            magNeeded = magazineMax - magazineCur;
+            magazineCur += Math.Min(magNeeded, playerScript.ammoCount);
+            isReloading = false;
+            playerScript.ammoCount -= Math.Min(magNeeded, playerScript.ammoCount);
         }
+
+
+        /*
         if(magazineCur == 0)
         {
             magazineCur = playerScript.ammoCount;
             playerScript.ammoCount = 0;
+            isReloading = false;
         }
-        
+        */
+
         /*
         if(playerScript.ammoCount >= magNeeded)
         {
@@ -135,7 +167,7 @@ public class Gun : MonoBehaviour
             playerScript.ammoCount -= magNeeded;
         }
         */
-        
+
     }
 
     void FirePistol()
