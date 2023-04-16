@@ -10,7 +10,7 @@ public class MenuUI : MonoBehaviour
 
     public void Play()
     {
-        //SceneManager.LoadScene("L1F1");
+        SceneManager.LoadScene("L1F1");
         audioSource.Play();
 
     }
