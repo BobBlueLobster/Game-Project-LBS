@@ -5,8 +5,8 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    public int maxHP = 10;
-    public int curHP = 4;
+    public int maxHP = 15;
+    public int curHP = 9;
 
     public int maxHumanity = 100;
 
@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
     {
         if(col.gameObject.tag == "BulletEnemy")
         {
-            //curHP--;
+            curHP -= 3;
             Destroy(col.gameObject);
 
             if (curHP == 0)
