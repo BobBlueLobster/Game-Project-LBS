@@ -980,6 +980,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1085202929101639530, guid: 26407a73f34ea3242afe2a4d4bb60554, type: 3}
+      propertyPath: hasGun
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098716058423388010, guid: 26407a73f34ea3242afe2a4d4bb60554, type: 3}
       propertyPath: m_Name
       value: TestPlayer2

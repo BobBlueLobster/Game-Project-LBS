@@ -13,7 +13,7 @@ public class Gun : MonoBehaviour
 
     public float speed = 20;
 
-    private float shootTimer;
+    private float shootTimer = 0.5f;
 
     public Player playerScript;
     public Transform playerTransform;
@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
     public bool isReloading = false;
 
     private int magazineMax = 6;
-    public int magazineCur;
+    public int magazineCur = 0;
     private int magNeeded;
 
     public AudioClip shooting;
@@ -49,10 +49,6 @@ public class Gun : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-
-        magazineCur = 0;
-
-        shootTimer = 0.5f;
 
         gun = GameObject.Find("Gun");
         playerScript = GameObject.Find("Sprite").GetComponent<Player>();

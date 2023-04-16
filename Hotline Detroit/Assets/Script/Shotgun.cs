@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
-    public int curAmmo;
+    public int curAmmo = 0;
     private int maxAmmo = 2;
     public int spareAmmo;
 
@@ -16,7 +16,7 @@ public class Shotgun : MonoBehaviour
     public Animator muzFShot;
     public GameObject muzAnim;
 
-    private float shootTimer;
+    private float shootTimer = 0.75f;
 
     public bool reloading = false;
 
@@ -31,11 +31,10 @@ public class Shotgun : MonoBehaviour
     public int bulletsShot;
 
 
+
     void Start()
     {
-        curAmmo = 0;
 
-        shootTimer = 0.75f;
 
         audioSource = GetComponent<AudioSource>();
 

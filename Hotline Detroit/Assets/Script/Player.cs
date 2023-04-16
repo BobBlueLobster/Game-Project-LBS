@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     public int killScore = 0;
 
-    public int ammoCount;
+    public int ammoCount = 0;
 
     public bool hasGun;
     public bool hasShotgun;
@@ -39,9 +39,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        ammoCount = 0;
-
-        hasGun = false;
 
         audioSource = GetComponent<AudioSource>();
 
