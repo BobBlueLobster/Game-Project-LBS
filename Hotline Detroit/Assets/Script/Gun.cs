@@ -21,6 +21,9 @@ public class Gun : MonoBehaviour
 
     private GameObject gun;
 
+    public Animator muzFRev;
+    public GameObject muzAnim;
+
     public FieldOfVision1 fov1;
     public AIDestinationSetter aiDest;
 
@@ -31,6 +34,7 @@ public class Gun : MonoBehaviour
     private int magNeeded;
 
     public AudioClip shooting;
+    public AudioClip noAmmo;
     public AudioClip reloading;
     public AudioSource audioSource;
 
@@ -56,6 +60,8 @@ public class Gun : MonoBehaviour
         fov1 = GameObject.Find("Enemy").GetComponent<FieldOfVision1>();
         aiDest = GameObject.Find("Enemy").GetComponent<AIDestinationSetter>();
         enemyLayer = LayerMask.GetMask("Enemy");
+
+        muzFRev = muzAnim.GetComponent<Animator>();
     }
 
     void Update()
@@ -63,6 +69,9 @@ public class Gun : MonoBehaviour
         magNeeded = magazineMax - magazineCur;
 
         shootTimer -= Time.deltaTime;
+
+        if (shootTimer >= 0.05f)
+            muzFRev.SetBool("Shot", false);
 
         if (playerScript.hasGun)
         {
@@ -72,11 +81,20 @@ public class Gun : MonoBehaviour
                 {
                     if (shootTimer < 0)
                     {
+                        muzFRev.SetBool("Shot", true);
                         audioSource.PlayOneShot(shooting, 0.5f);
                         FirePistol();
                         shootTimer = 0.4f;
                         magazineCur--;
                     }
+                }
+            }
+            if(magazineCur == 0 && isReloading == false)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    audioSource.PlayOneShot(noAmmo, 0.5f);
+                    shootTimer = 0.4f;
                 }
             }
         }

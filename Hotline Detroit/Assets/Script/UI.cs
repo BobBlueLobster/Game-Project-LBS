@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     public Animator animator;
+    public Animator animShotgun;
 
     public Player playerScript;
 
@@ -116,6 +117,18 @@ public class UI : MonoBehaviour
             animator.SetFloat("Reloading", 0);
             animator.gameObject.GetComponent<Animator>().enabled = false;
         }
+      /*
+        if(shotgunScript.reloading == true)
+        {
+            animShotgun.SetFloat("Reloading", 1);
+            animShotgun.gameObject.GetComponent<Animator>().enabled = true;
+        }
+        if (shotgunScript.reloading == false)
+        {
+            animShotgun.SetFloat("Reloading", 0);
+            animShotgun.gameObject.GetComponent<Animator>().enabled = false;
+        }
+      */
 
         /*
         if(playerScript.ammoCount < 10)
