@@ -30,12 +30,24 @@ public class Shotgun : MonoBehaviour
     public float maxSpread;
     public int bulletsShot;
 
+    public static Shotgun instance;
 
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     void Start()
     {
-
-
         audioSource = GetComponent<AudioSource>();
 
         muzFShot = muzAnim.GetComponent<Animator>();

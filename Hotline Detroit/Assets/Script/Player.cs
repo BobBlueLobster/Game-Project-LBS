@@ -36,6 +36,14 @@ public class Player : MonoBehaviour
     public AudioClip dying;
     public AudioSource audioSource;
 
+    public static Player instance;
+
+    private void Awake()
+    {
+        instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     void Start()
     {

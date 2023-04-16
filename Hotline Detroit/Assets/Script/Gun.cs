@@ -44,7 +44,14 @@ public class Gun : MonoBehaviour
     public int range = 100;
     private LayerMask enemyLayer;
 
+    public static Gun instance;
 
+    private void Awake()
+    {
+        instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     void Start()
     {
