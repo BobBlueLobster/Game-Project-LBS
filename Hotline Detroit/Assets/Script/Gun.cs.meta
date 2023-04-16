@@ -3,7 +3,21 @@ guid: 146ce1661c0a34443831626ac16c11f2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletSpawn: {instanceID: 0}
+  - bulletPrefab: {instanceID: 0}
+  - playerScript: {instanceID: 0}
+  - playerTransform: {instanceID: 0}
+  - enemyScript: {instanceID: 0}
+  - muzFRev: {instanceID: 0}
+  - muzAnim: {instanceID: 0}
+  - fov1: {instanceID: 0}
+  - aiDest: {instanceID: 0}
+  - shooting: {instanceID: 0}
+  - noAmmo: {instanceID: 0}
+  - reloading: {instanceID: 0}
+  - audioSource: {instanceID: 0}
+  - temporaryGunObject: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

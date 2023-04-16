@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class Shotgun : MonoBehaviour
 {
-    public int curAmmo;
+    public int curAmmo = 0;
     private int maxAmmo = 2;
     public int spareAmmo;
 
-    private float shootTimer;
+    public AudioClip shoot;
+    public AudioClip reload;
+    public AudioClip noAmmo;
+    public AudioSource audioSource;
+
+    public Animator muzFShot;
+    public GameObject muzAnim;
+
+    private float shootTimer = 0.75f;
+
+    public bool reloading = false;
 
     public GameObject bulletPre;
     public Transform bulletSpawn;
@@ -20,30 +30,61 @@ public class Shotgun : MonoBehaviour
     public float maxSpread;
     public int bulletsShot;
 
+    public static Shotgun instance;
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     void Start()
     {
-        curAmmo = 0;
+        audioSource = GetComponent<AudioSource>();
 
-        shootTimer = 0.75f;
+        muzFShot = muzAnim.GetComponent<Animator>();
     }
 
     void Update()
     {
         shootTimer -= Time.deltaTime;
 
+        if (shootTimer >= 0f)
+            muzFShot.SetBool("Shot", false);
+
         if (curAmmo > 0 && shootTimer < 0)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                muzFShot.SetBool("Shot", true);
+                audioSource.PlayOneShot(shoot, 0.5f);
                 FireGun();
-                shootTimer = 0.75f;
+                shootTimer = 0.2f;
                 curAmmo--;
             }
         }
-
-        if(Input.GetKeyUp(KeyCode.R))
+        if (curAmmo == 0 && reloading == false)
         {
-            Invoke("Reload", 3f);
+            if (Input.GetMouseButtonDown(0))
+            {
+                audioSource.PlayOneShot(noAmmo, 0.5f);
+                shootTimer = 0.4f;
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            audioSource.PlayOneShot(reload, 0.5f);
+            reloading = true;
+            Invoke("Reload", 5f);
         }
     }
 
@@ -53,11 +94,13 @@ public class Shotgun : MonoBehaviour
         {
             curAmmo = maxAmmo;
             spareAmmo -= 2;
+            reloading = false;
         }
         if(spareAmmo <= 2 && curAmmo == 0)
         {
             curAmmo = spareAmmo;
             spareAmmo = 0;
+            reloading = false;
         }
     }
 
