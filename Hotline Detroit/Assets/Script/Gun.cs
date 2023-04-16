@@ -45,6 +45,7 @@ public class Gun : MonoBehaviour
     private LayerMask enemyLayer;
 
 
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();

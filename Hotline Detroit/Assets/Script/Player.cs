@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     public AudioClip dying;
     public AudioSource audioSource;
 
+
     void Start()
     {
         ammoCount = 0;
