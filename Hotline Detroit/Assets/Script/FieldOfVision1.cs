@@ -72,6 +72,8 @@ namespace Pathfinding
         //and let FOV be out of the if statement, just in the FixedUpdate
         private void FixedUpdate()
         {
+            gun = GameObject.Find("Gun").GetComponent<Gun>();
+
             if (waitForSwitch == true)
             {
                 StartCoroutine("CoroutineExample");
@@ -98,18 +100,25 @@ namespace Pathfinding
                 aipath.maxSpeed = 2;
                 waitForSwitch = true;
             }
-            else
+            
+            
+            if(CanSeePlayer == false)
             {
+                Debug.Log(gun.heardPlayer);
                 if (gun.heardPlayer == true /*&& !gun.temporaryGunObject*/)
                 {
+
                     destSet.enabled = true;
                     patrol.enabled = false;
                     destSet.target = gun.temporaryGunObject.transform;
+                    Debug.Log(destSet.target);
                     waitForSwitch = true;
                 }
             }
 
             
+
+
             //else
             //{
             //    destSet.target = enemy.temporaryEnemyTransform.transform;
