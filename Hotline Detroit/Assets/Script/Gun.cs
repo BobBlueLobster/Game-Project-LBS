@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
     public bool heardPlayer;
     public Collider2D[] possibleEnemiesWhoHeardMe;
     public GameObject temporaryGunObject;
-    public int range = 0;
+    public int range;
     private LayerMask enemyLayer;
 
     public static Gun instance;
@@ -93,12 +93,12 @@ public class Gun : MonoBehaviour
                         magazineCur--;
 
                         Destroy(temporaryGunObject);
-                        foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
+                        temporaryGunTransform(gun, transform);
+                        foreach (var Enemy in possibleEnemiesWhoHeardMe)
                         {
-                            {
-                                temporaryGunTransform(gun, transform);
-                                heardPlayer = true; 
-                            }
+                            GameObject gameObject = Enemy.gameObject;
+                            FieldOfVision1 fov1 = gameObject.GetComponentInParent<FieldOfVision1>();
+                            fov1.heardPlayer = true;
                         }
                     }
                 }

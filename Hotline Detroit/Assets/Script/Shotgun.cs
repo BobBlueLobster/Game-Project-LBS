@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Shotgun : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class Shotgun : MonoBehaviour
     public bool heardPlayer;
     public Collider2D[] possibleEnemiesWhoHeardMe;
     public GameObject temporaryGunObject;
-    public int range = 5;
+    public int range;
     private LayerMask enemyLayer;
 
     private GameObject shotgun;
@@ -86,13 +87,12 @@ public class Shotgun : MonoBehaviour
                 curAmmo--;
 
                 Destroy(temporaryGunObject);
-                foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
+                temporaryGunTransform(shotgun, transform);
+                foreach (var Enemy in possibleEnemiesWhoHeardMe)
                 {
-                    {
-                        temporaryGunTransform(shotgun, transform);
-                        heardPlayer = true;
-                        Debug.Log("shoocks");
-                    }
+                    GameObject gameObject = Enemy.gameObject;
+                    FieldOfVision1 fov1 = gameObject.GetComponentInParent<FieldOfVision1>();
+                    fov1.heardPlayer = true;
                 }
             }
         }

@@ -26,6 +26,7 @@ namespace Pathfinding
         public bool CanSeePlayer { get; private set; }
         static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
+        public bool heardPlayer;
 
         //Check the original FieldOfVision if you need to revert back to the old code
         void Start()
@@ -56,7 +57,7 @@ namespace Pathfinding
             {
                 Debug.Log("SWITCH");
                 waitForSwitch = false;
-                gun.heardPlayer = false;
+                heardPlayer = false;
             }
             else
             {
@@ -94,7 +95,6 @@ namespace Pathfinding
 
             if (CanSeePlayer == true)
             {
-                Debug.Log("kurwo dzialaj szmato pierdolona");
                 destSet.enabled = true;
                 patrol.enabled = false;
                 aipath.maxSpeed = 2;
@@ -117,20 +117,19 @@ namespace Pathfinding
         public void gunMoment()
         {
             gun = GameObject.Find("Gun").GetComponent<Gun>();
-            Debug.Log(gun.heardPlayer);
-            if (gun.heardPlayer == true)
+            Debug.Log(heardPlayer);
+            if (heardPlayer == true)
             {
                 destSet.enabled = true;
                 patrol.enabled = false;
                 destSet.target = gun.temporaryGunObject.transform;
-                Debug.Log(destSet.target);
                 waitForSwitch = true;
             }
         }
         public void shotgunMoment()
         {
             shotgun = GameObject.Find("GunBody").GetComponent<Shotgun>();
-            if (shotgun.heardPlayer == true)
+            if (heardPlayer == true)
             {
                 Debug.Log("GodHelp");
                 destSet.enabled = true;
