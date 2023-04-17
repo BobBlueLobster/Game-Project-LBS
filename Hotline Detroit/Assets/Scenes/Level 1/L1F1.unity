@@ -9763,7 +9763,11 @@ MonoBehaviour:
   heardPlayer: 0
   possibleEnemiesWhoHeardMe: []
   temporaryGunObject: {fileID: 0}
+ HEAD
   range: 100
+
+  range: 5
+ 8e0a0c435eff2c63cfb476e3c61e7de48bccb771
 --- !u!4 &1085202927935562149
 Transform:
   m_ObjectHideFlags: 0
@@ -10221,7 +10225,7 @@ MonoBehaviour:
   heardPlayer: 0
   possibleEnemiesWhoHeardMe: []
   temporaryGunObject: {fileID: 0}
-  range: 100
+  range: 5
 --- !u!212 &1085202928126302679
 SpriteRenderer:
   m_ObjectHideFlags: 0

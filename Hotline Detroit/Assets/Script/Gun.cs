@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
     public bool heardPlayer;
     public Collider2D[] possibleEnemiesWhoHeardMe;
     public GameObject temporaryGunObject;
-    public int range = 100;
+    public int range = 0;
     private LayerMask enemyLayer;
 
     public static Gun instance;
