@@ -3065,7 +3065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4f60e1d5acac43b6fa07da27ec586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2098716057677604625}
 --- !u!82 &193401483
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9761,6 +9760,10 @@ MonoBehaviour:
   player: {fileID: 2098716058912510566}
   maxSpread: 5
   bulletsShot: 6
+  heardPlayer: 0
+  possibleEnemiesWhoHeardMe: []
+  temporaryGunObject: {fileID: 0}
+  range: 5
 --- !u!4 &1085202927935562149
 Transform:
   m_ObjectHideFlags: 0
@@ -10218,7 +10221,7 @@ MonoBehaviour:
   heardPlayer: 0
   possibleEnemiesWhoHeardMe: []
   temporaryGunObject: {fileID: 0}
-  range: 100
+  range: 5
 --- !u!212 &1085202928126302679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11808,7 +11811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4f60e1d5acac43b6fa07da27ec586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &2098716057677604641
 MonoBehaviour:
   m_ObjectHideFlags: 0
