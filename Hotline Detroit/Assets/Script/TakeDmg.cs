@@ -18,6 +18,7 @@ public class TakeDmg : MonoBehaviour
     {
         if(playerScript.curHP <= 0)
         {
+            Destroy(gameObject);
             SceneManager.LoadScene(0);
         }
     }

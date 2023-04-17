@@ -90,6 +90,7 @@ namespace Pathfinding
 
             if (FOVOn == true)
             {
+                Debug.Log("SeX");
                 FOV();
             }
 
@@ -104,6 +105,7 @@ namespace Pathfinding
             
             if(CanSeePlayer == false)
             {
+                FOVOn = true;
                 Debug.Log(gun.heardPlayer);
                 if (gun.heardPlayer == true /*&& !gun.temporaryGunObject*/)
                 {

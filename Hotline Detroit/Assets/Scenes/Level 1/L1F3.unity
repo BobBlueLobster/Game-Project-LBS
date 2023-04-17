@@ -11609,6 +11609,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPlayerV1
       objectReference: {fileID: 0}
+    - target: {fileID: 2098716058423388010, guid: 26407a73f34ea3242afe2a4d4bb60554, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098716058423388011, guid: 26407a73f34ea3242afe2a4d4bb60554, type: 3}
       propertyPath: m_RootOrder
       value: 2

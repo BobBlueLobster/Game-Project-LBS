@@ -95,8 +95,7 @@ public class Gun : MonoBehaviour
                         {
                             {
                                 temporaryGunTransform(gun, transform);
-                                heardPlayer = true;
-                                
+                                heardPlayer = true; 
                             }
                         }
                     }
