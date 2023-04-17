@@ -80,7 +80,7 @@ public class Shotgun : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.R))
+        if (Input.GetKeyUp(KeyCode.R) && spareAmmo != 0)
         {
             audioSource.PlayOneShot(reload, 0.5f);
             reloading = true;
