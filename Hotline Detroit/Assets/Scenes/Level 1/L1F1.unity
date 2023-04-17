@@ -8634,7 +8634,7 @@ GameObject:
   - component: {fileID: 1085202927078845755}
   - component: {fileID: 1085202927078845753}
   - component: {fileID: 1085202927078845754}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Dialogue1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8702,7 +8702,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085202927188432574}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8778,7 +8778,7 @@ GameObject:
   - component: {fileID: 1085202927215832440}
   - component: {fileID: 1085202927215832422}
   - component: {fileID: 1085202927215832423}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Crack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8816,7 +8816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085202927235453502}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: AmmoUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8892,7 +8892,7 @@ GameObject:
   - component: {fileID: 1085202927266833559}
   - component: {fileID: 1085202927266833557}
   - component: {fileID: 1085202927266833558}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Bullet_sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9003,7 +9003,7 @@ GameObject:
   - component: {fileID: 1085202927362527811}
   - component: {fileID: 1085202927362527809}
   - component: {fileID: 1085202927362527808}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HPbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9079,7 +9079,7 @@ GameObject:
   - component: {fileID: 1085202927448883723}
   - component: {fileID: 1085202927448883721}
   - component: {fileID: 1085202927448883722}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player_Face
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9155,7 +9155,7 @@ GameObject:
   - component: {fileID: 1085202927462011673}
   - component: {fileID: 1085202927462011655}
   - component: {fileID: 1085202927462011672}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9227,7 +9227,7 @@ GameObject:
   - component: {fileID: 1085202927617525248}
   - component: {fileID: 1085202927617525262}
   - component: {fileID: 1085202927617525263}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: AmmoCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9478,7 +9478,7 @@ GameObject:
   - component: {fileID: 1085202927689847793}
   - component: {fileID: 1085202927689847807}
   - component: {fileID: 1085202927689847792}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9554,7 +9554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085202927739037307}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9630,7 +9630,7 @@ GameObject:
   - component: {fileID: 1085202927876571188}
   - component: {fileID: 1085202927876571186}
   - component: {fileID: 1085202927876571187}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9884,7 +9884,7 @@ GameObject:
   - component: {fileID: 1085202927967659740}
   - component: {fileID: 1085202927967659741}
   - component: {fileID: 1085202927967659739}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ShotgunUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10549,7 +10549,7 @@ GameObject:
   - component: {fileID: 1085202928172426551}
   - component: {fileID: 1085202928172426547}
   - component: {fileID: 1085202928172426546}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10625,7 +10625,7 @@ GameObject:
   - component: {fileID: 1085202928195673653}
   - component: {fileID: 1085202928195673651}
   - component: {fileID: 1085202928195673652}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10762,7 +10762,7 @@ GameObject:
   - component: {fileID: 1085202928257409128}
   - component: {fileID: 1085202928257409110}
   - component: {fileID: 1085202928257409111}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10781,8 +10781,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aee8ae8fff2c5949adfd8f4e4f117b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  curHP: 4
+  maxHP: 15
+  curHP: 9
   maxHumanity: 100
   collider1: {fileID: 0}
   killScore: 0
@@ -10921,7 +10921,7 @@ GameObject:
   - component: {fileID: 1085202928368799505}
   - component: {fileID: 1085202928368799519}
   - component: {fileID: 1085202928368799518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -11069,7 +11069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085202928445275392}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11145,7 +11145,7 @@ GameObject:
   - component: {fileID: 1085202928604943244}
   - component: {fileID: 1085202928604943242}
   - component: {fileID: 1085202928604943243}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DialogueDimming1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11322,7 +11322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1085202928636491917}
   - component: {fileID: 1085202928636491916}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HappinessBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11358,7 +11358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1085202928691627081}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11434,7 +11434,7 @@ GameObject:
   - component: {fileID: 1085202928811322606}
   - component: {fileID: 1085202928811322604}
   - component: {fileID: 1085202928811322605}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BackgroundAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11636,7 +11636,7 @@ GameObject:
   - component: {fileID: 1085202929078430789}
   - component: {fileID: 1085202929078430790}
   - component: {fileID: 1085202929078430788}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PistolUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11750,6 +11750,8 @@ GameObject:
   - component: {fileID: 2098716057677604639}
   - component: {fileID: 2098716057677604638}
   - component: {fileID: 2098716057677604640}
+  - component: {fileID: 2098716057677604641}
+  - component: {fileID: 2098716057677604642}
   m_Layer: 0
   m_Name: FinishPlayerV1
   m_TagString: Untagged
@@ -11805,6 +11807,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4f60e1d5acac43b6fa07da27ec586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2098716057677604641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098716057677604625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc3279d58ec4cc43bc465e56c56a193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1085202928368799510}
+--- !u!58 &2098716057677604642
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098716057677604625}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01158905, y: 0.010617575}
+  serializedVersion: 2
+  m_Radius: 1.1749344
 --- !u!4 &2098716058146493209
 Transform:
   m_ObjectHideFlags: 0

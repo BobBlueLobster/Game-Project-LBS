@@ -36,6 +36,8 @@ public class Player : MonoBehaviour
     public AudioClip dying;
     public AudioSource audioSource;
 
+    private static Player instance;
+
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -82,8 +84,8 @@ public class Player : MonoBehaviour
     {
         if(col.gameObject.tag == "BulletEnemy")
         {
-            curHP -= 3;
             Destroy(col.gameObject);
+            curHP -= 3;
 
             if (curHP == 0)
             {
@@ -96,6 +98,8 @@ public class Player : MonoBehaviour
                 moveScript.enabled = false;
 
                 rotateScript.enabled = false;
+
+
             }
         }
     }
