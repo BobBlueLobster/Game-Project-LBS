@@ -60,7 +60,7 @@ public class Shotgun : MonoBehaviour
         if (shootTimer >= 0f)
             muzFShot.SetBool("Shot", false);
 
-        if (curAmmo > 0 && shootTimer < 0)
+        if (curAmmo > 0 && shootTimer < 0 && reloading == false)
         {
             if (Input.GetMouseButtonDown(0))
             {
