@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1/L1F3.unity
     guid: 77398122fec7e7943bc94c3efc91f68a
+  - enabled: 1
+    path: Assets/Scenes/Level 1/Teaser.unity
+    guid: 22cfd0312a8a9f14cbac96c16907f4d8
   m_configObjects: {}
