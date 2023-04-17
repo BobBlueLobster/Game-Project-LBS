@@ -67,6 +67,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+        //Debug.Log(possibleEnemiesWhoHeardMe.Length);
 
         magNeeded = magazineMax - magazineCur;
 
@@ -95,6 +96,7 @@ public class Gun : MonoBehaviour
                             {
                                 temporaryGunTransform(gun, transform);
                                 heardPlayer = true;
+                                
                             }
                         }
                     }
