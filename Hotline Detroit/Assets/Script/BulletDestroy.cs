@@ -20,6 +20,6 @@ public class BulletDestroy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        Debug.Log(col.gameObject.name);
+        //Debug.Log(col.gameObject.name);
     }
 }

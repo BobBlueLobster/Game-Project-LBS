@@ -10781,7 +10781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aee8ae8fff2c5949adfd8f4e4f117b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 15
+  maxHP: 150000000
   curHP: 9
   maxHumanity: 100
   collider1: {fileID: 0}

@@ -22,7 +22,7 @@ namespace Pathfinding
         public Enemy enemy;
 
         public bool CanSeePlayer { get; private set; }
-        [SerializeField]static public bool FOVOn { get; private set; }
+        static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
 
         //Check the original FieldOfVision if you need to revert back to the old code
@@ -72,7 +72,7 @@ namespace Pathfinding
         //and let FOV be out of the if statement, just in the FixedUpdate
         private void FixedUpdate()
         {
-            gun = GameObject.Find("Gun").GetComponent<Gun>();
+            FOV();
 
             if (waitForSwitch == true)
             {
@@ -88,7 +88,7 @@ namespace Pathfinding
                 ForgetIt();
             }
 
-            if (FOVOn == true)
+            if ( FOVOn == true)
             {
                 Debug.Log("SeX");
                 FOV();
@@ -96,14 +96,13 @@ namespace Pathfinding
 
             if (CanSeePlayer == true)
             {
+                Debug.Log("kurwo dzialaj szmato pierdolona");
                 destSet.enabled = true;
                 patrol.enabled = false;
                 aipath.maxSpeed = 2;
                 waitForSwitch = true;
-            }
-            
-            
-            if(CanSeePlayer == false)
+            }            
+            else
             {
                 FOVOn = true;
                 Debug.Log(gun.heardPlayer);
@@ -118,7 +117,7 @@ namespace Pathfinding
                 }
             }
 
-            
+            gun = GameObject.Find("Gun").GetComponent<Gun>();
 
 
             //else
