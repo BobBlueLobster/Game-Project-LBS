@@ -19,7 +19,9 @@ namespace Pathfinding
         public AIDestinationSetter destSet;
         public Patrol patrol;
         public Gun gun;
+        public Shotgun shotgun;
         public Enemy enemy;
+        public Player player;
 
         public bool CanSeePlayer { get; private set; }
         static public bool FOVOn { get; private set; }
@@ -31,6 +33,7 @@ namespace Pathfinding
             //playerRef = GameObject.FindGameObjectWithTag("Player");
             //playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
             //StartCoroutine(FOVCheck());
+            player = GameObject.Find("Sprite").GetComponent<Player>();
             gun = GameObject.Find("Gun").GetComponent<Gun>();
             FOVOn = true;
             if (patrol.targets.Length == 0)
@@ -72,6 +75,7 @@ namespace Pathfinding
         //and let FOV be out of the if statement, just in the FixedUpdate
         private void FixedUpdate()
         {
+
             FOV();
 
             if (waitForSwitch == true)
@@ -88,12 +92,6 @@ namespace Pathfinding
                 ForgetIt();
             }
 
-            if ( FOVOn == true)
-            {
-                Debug.Log("SeX");
-                FOV();
-            }
-
             if (CanSeePlayer == true)
             {
                 Debug.Log("kurwo dzialaj szmato pierdolona");
@@ -105,33 +103,43 @@ namespace Pathfinding
             else
             {
                 FOVOn = true;
-                Debug.Log(gun.heardPlayer);
-                if (gun.heardPlayer == true /*&& !gun.temporaryGunObject*/)
+                if(player.curWeapon == 1)
                 {
-
-                    destSet.enabled = true;
-                    patrol.enabled = false;
-                    destSet.target = gun.temporaryGunObject.transform;
-                    Debug.Log(destSet.target);
-                    waitForSwitch = true;
+                    gunMoment();
+                }
+                if (player.curWeapon == 2)
+                {
+                    shotgunMoment();
                 }
             }
-
-            gun = GameObject.Find("Gun").GetComponent<Gun>();
-
-
-            //else
-            //{
-            //    destSet.target = enemy.temporaryEnemyTransform.transform;
-            //}
-
-            //if (gun.temporaryGunObject == null)
-            //{
-            //    destSet.enabled = true;
-            //    destSet.target = enemy.temporaryEnemyTransform.transform;
-            //}
         }
 
+        public void gunMoment()
+        {
+            gun = GameObject.Find("Gun").GetComponent<Gun>();
+            Debug.Log(gun.heardPlayer);
+            if (gun.heardPlayer == true)
+            {
+                destSet.enabled = true;
+                patrol.enabled = false;
+                destSet.target = gun.temporaryGunObject.transform;
+                Debug.Log(destSet.target);
+                waitForSwitch = true;
+            }
+        }
+        public void shotgunMoment()
+        {
+            shotgun = GameObject.Find("GunBody").GetComponent<Shotgun>();
+            if (shotgun.heardPlayer == true)
+            {
+                Debug.Log("GodHelp");
+                destSet.enabled = true;
+                patrol.enabled = false;
+                destSet.target = shotgun.temporaryGunObject.transform;
+                Debug.Log(destSet.target);
+                waitForSwitch = true;
+            }
+        }
         
 
         private void ForgetIt()

@@ -49,6 +49,8 @@ public class Gun : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this.gameObject);
+
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     void Start()
@@ -67,7 +69,7 @@ public class Gun : MonoBehaviour
     void Update()
     {
         possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
-        //Debug.Log(possibleEnemiesWhoHeardMe.Length);
+        Debug.Log(possibleEnemiesWhoHeardMe.Length);
 
         magNeeded = magazineMax - magazineCur;
 
@@ -120,19 +122,6 @@ public class Gun : MonoBehaviour
                 Invoke("Reload", 3.7f);
             }
         }
-
-        //THIS IS FOR TESTING DELETE LATER
-        //if (Input.GetKeyUp(KeyCode.Q))
-        //{
-        //    audioSource.PlayOneShot(shooting, 0.5f);
-        //    Debug.Log("pew");
-        //}
-        //END OF THE TESTING SCRIPT
-
-        //if (Input.GetKeyUp(KeyCode.Q))
-        //{
-            
-        //}
     }
 
     public void temporaryGunTransform(GameObject obj, Transform newTransform)

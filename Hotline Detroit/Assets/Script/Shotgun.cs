@@ -32,6 +32,14 @@ public class Shotgun : MonoBehaviour
 
     public static Shotgun instance;
 
+    public bool heardPlayer;
+    public Collider2D[] possibleEnemiesWhoHeardMe;
+    public GameObject temporaryGunObject;
+    public int range = 100;
+    private LayerMask enemyLayer;
+
+    private GameObject shotgun;
+
     private void Awake()
     {
         if(instance != null)
@@ -44,6 +52,8 @@ public class Shotgun : MonoBehaviour
 
             DontDestroyOnLoad(gameObject);
         }
+
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     void Start()
@@ -51,10 +61,15 @@ public class Shotgun : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         muzFShot = muzAnim.GetComponent<Animator>();
+
+        shotgun = GameObject.Find("GunBody");
     }
 
     void Update()
     {
+        possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+        //Debug.Log(possibleEnemiesWhoHeardMe.Length);
+
         shootTimer -= Time.deltaTime;
 
         if (shootTimer >= 0f)
@@ -69,6 +84,16 @@ public class Shotgun : MonoBehaviour
                 FireGun();
                 shootTimer = 0.2f;
                 curAmmo--;
+
+                Destroy(temporaryGunObject);
+                foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
+                {
+                    {
+                        temporaryGunTransform(shotgun, transform);
+                        heardPlayer = true;
+                        Debug.Log("shoocks");
+                    }
+                }
             }
         }
         if (curAmmo == 0 && reloading == false)
@@ -86,6 +111,28 @@ public class Shotgun : MonoBehaviour
             reloading = true;
             Invoke("Reload", 5f);
         }
+    }
+
+    public void temporaryGunTransform(GameObject obj, Transform newTransform)
+    {
+        GameObject tempObj = new GameObject("Temp Shotgun Transform");
+        tempObj.transform.position = obj.transform.position;
+        tempObj.transform.rotation = obj.transform.rotation;
+
+        temporaryGunObject = tempObj;
+
+        StartCoroutine(DestroyTempTransform(/*obj, */tempObj, 5));
+    }
+
+    IEnumerator DestroyTempTransform(/*GameObject obj, */GameObject tempObj, float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        //obj.transform.parent = null;
+        //obj.transform.position = tempObj.transform.position;
+        //obj.transform.rotation = tempObj.transform.rotation;
+
+        Destroy(tempObj);
     }
 
     void Reload()
