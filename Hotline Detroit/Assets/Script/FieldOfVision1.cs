@@ -22,7 +22,7 @@ namespace Pathfinding
         public Enemy enemy;
 
         public bool CanSeePlayer { get; private set; }
-        static public bool FOVOn { get; private set; }
+        [SerializeField]static public bool FOVOn { get; private set; }
         private bool waitForSwitch;
 
         //Check the original FieldOfVision if you need to revert back to the old code
@@ -36,6 +36,7 @@ namespace Pathfinding
             if (patrol.targets.Length == 0)
             {
                 destSet.enabled = true;
+                patrol.enabled = false;
             }
             else
             {
@@ -60,6 +61,11 @@ namespace Pathfinding
                 waitForSwitch = true;
                 FOVOn = true;
             }
+        }
+
+        IEnumerator waitPlease()
+        {
+            yield return new WaitForSeconds(10);
         }
 
         //in case of need to go back, remove fixed update and uncomment StartCoroutineFOVCheck and IEnumeratorFOVCheck
@@ -92,14 +98,28 @@ namespace Pathfinding
                 aipath.maxSpeed = 2;
                 waitForSwitch = true;
             }
-
-            if (gun.heardPlayer == true)
+            else
             {
-                destSet.enabled = true;
-                patrol.enabled = false;
-                destSet.target = gun.temporaryGunObject.transform;
-                waitForSwitch = true;
+                if (gun.heardPlayer == true /*&& !gun.temporaryGunObject*/)
+                {
+                    destSet.enabled = true;
+                    patrol.enabled = false;
+                    destSet.target = gun.temporaryGunObject.transform;
+                    waitForSwitch = true;
+                }
             }
+
+            
+            //else
+            //{
+            //    destSet.target = enemy.temporaryEnemyTransform.transform;
+            //}
+
+            //if (gun.temporaryGunObject == null)
+            //{
+            //    destSet.enabled = true;
+            //    destSet.target = enemy.temporaryEnemyTransform.transform;
+            //}
         }
 
         
@@ -111,11 +131,9 @@ namespace Pathfinding
             if (patrol.targets.Length == 0)
             {
                 destSet.enabled = true;
-                destSet.target = enemy.temporaryEnemyTransform.transform; 
-                if (aipath.reachedEndOfPath == true)
-                {
-                    destSet.target = null;
-                }
+                destSet.target = enemy.temporaryEnemyTransform.transform;
+                //StartCoroutine("waitPlease");
+                //destSet.target = null;
             }
             else
             {
@@ -141,7 +159,7 @@ namespace Pathfinding
                     if (!Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionLayer))
                     {
                         CanSeePlayer = true;
-                        FOVOn = false;
+                        FOVOn = true;
                         destSet.target = target;
                     }
                     else

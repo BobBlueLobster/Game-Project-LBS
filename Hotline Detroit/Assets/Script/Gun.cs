@@ -66,6 +66,8 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
+        possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
+
         magNeeded = magazineMax - magazineCur;
 
         shootTimer -= Time.deltaTime;
@@ -86,6 +88,15 @@ public class Gun : MonoBehaviour
                         FirePistol();
                         shootTimer = 0.4f;
                         magazineCur--;
+
+                        Destroy(temporaryGunObject);
+                        foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
+                        {
+                            {
+                                temporaryGunTransform(gun, transform);
+                                heardPlayer = true;
+                            }
+                        }
                     }
                 }
             }
@@ -117,19 +128,10 @@ public class Gun : MonoBehaviour
         //}
         //END OF THE TESTING SCRIPT
 
-        possibleEnemiesWhoHeardMe = Physics2D.OverlapCircleAll(transform.position, range, enemyLayer);
-        if (Input.GetKeyUp(KeyCode.Q))
-        {
-            Debug.Log("pewpew2");
-            foreach (Collider2D Enemy in possibleEnemiesWhoHeardMe)
-            {
-                {
-                    temporaryGunTransform(gun, transform);
-                    heardPlayer = true;
-                    Debug.Log("pewpew");
-                }
-            }
-        }
+        //if (Input.GetKeyUp(KeyCode.Q))
+        //{
+            
+        //}
     }
 
     public void temporaryGunTransform(GameObject obj, Transform newTransform)
@@ -140,16 +142,16 @@ public class Gun : MonoBehaviour
 
         temporaryGunObject = tempObj;
 
-        StartCoroutine(DestroyTempTransform(obj, tempObj, 5));
+        StartCoroutine(DestroyTempTransform(/*obj, */tempObj, 5));
     }
 
-    IEnumerator DestroyTempTransform(GameObject obj, GameObject tempObj, float duration)
+    IEnumerator DestroyTempTransform(/*GameObject obj, */GameObject tempObj, float duration)
     {
         yield return new WaitForSeconds(duration);
 
-        obj.transform.parent = null;
-        obj.transform.position = tempObj.transform.position;
-        obj.transform.rotation = tempObj.transform.rotation;
+        //obj.transform.parent = null;
+        //obj.transform.position = tempObj.transform.position;
+        //obj.transform.rotation = tempObj.transform.rotation;
 
         Destroy(tempObj);
     }
