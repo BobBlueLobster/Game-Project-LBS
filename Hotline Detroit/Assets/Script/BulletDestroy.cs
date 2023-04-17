@@ -20,6 +20,10 @@ public class BulletDestroy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if(col.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
         //Debug.Log(col.gameObject.name);
     }
 }

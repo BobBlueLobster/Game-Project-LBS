@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  radius: 7
+  radius: 10
   angle: 90
   targetLayer:
     serializedVersion: 2
@@ -359,7 +359,9 @@ MonoBehaviour:
   destSet: {fileID: 8877403913680158809}
   patrol: {fileID: 2353554748994097646}
   gun: {fileID: 0}
+  shotgun: {fileID: 0}
   enemy: {fileID: 6621019053343300334}
+  player: {fileID: 0}
 --- !u!114 &594383853400842611
 MonoBehaviour:
   m_ObjectHideFlags: 0

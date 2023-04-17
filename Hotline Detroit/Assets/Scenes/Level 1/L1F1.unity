@@ -3065,7 +3065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4f60e1d5acac43b6fa07da27ec586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2098716057677604625}
 --- !u!82 &193401483
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3078,7 +3077,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d9813a200654f6649a07d07695ecb9f7, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3169,13 +3168,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193401481}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.847551, y: 12.712151, z: -0.24323317}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.744465, y: -12.37863, z: -0.3243109}
+  m_LocalScale: {x: 1.3333334, y: 1.3333334, z: 1.3333334}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_Father: {fileID: 2098716057677604624}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200464577
 GameObject:
@@ -9761,6 +9760,10 @@ MonoBehaviour:
   player: {fileID: 2098716058912510566}
   maxSpread: 5
   bulletsShot: 6
+  heardPlayer: 0
+  possibleEnemiesWhoHeardMe: []
+  temporaryGunObject: {fileID: 0}
+  range: 100
 --- !u!4 &1085202927935562149
 Transform:
   m_ObjectHideFlags: 0
@@ -10468,7 +10471,7 @@ RectTransform:
   - {fileID: 1085202929078430791}
   - {fileID: 1085202927967659742}
   m_Father: {fileID: 2098716057677604624}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10782,7 +10785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aee8ae8fff2c5949adfd8f4e4f117b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 150000000
+  maxHP: 15
   curHP: 9
   maxHumanity: 100
   collider1: {fileID: 0}
@@ -11733,6 +11736,7 @@ Transform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 193401484}
   - {fileID: 2098716058912510566}
   - {fileID: 2098716058146493209}
   - {fileID: 1085202928172426548}
@@ -11808,7 +11812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4f60e1d5acac43b6fa07da27ec586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &2098716057677604641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11851,7 +11854,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2098716057677604624}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &2098716058146493412
 AudioListener:
@@ -12004,7 +12007,7 @@ Transform:
   - {fileID: 1085202927562469537}
   - {fileID: 1085202928368799509}
   m_Father: {fileID: 2098716057677604624}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2098716058912510567
 SpriteRenderer:

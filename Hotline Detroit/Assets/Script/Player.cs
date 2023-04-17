@@ -108,12 +108,12 @@ public class Player : MonoBehaviour
     {
         if(col.gameObject.tag == "Bandage")
         {
-            if (curHP < 10)
+            if (curHP < 15)
             {
                 curHP += 3;
 
-                if (curHP > 10)
-                    curHP = 10;
+                if (curHP > 15)
+                    curHP = 15;
 
                 healthBar.SetHealth(curHP);
 

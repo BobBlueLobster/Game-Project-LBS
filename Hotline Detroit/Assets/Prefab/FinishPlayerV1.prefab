@@ -196,6 +196,10 @@ MonoBehaviour:
   player: {fileID: 2098716059100025373}
   maxSpread: 5
   bulletsShot: 6
+  heardPlayer: 0
+  possibleEnemiesWhoHeardMe: []
+  temporaryGunObject: {fileID: 0}
+  range: 3
 --- !u!82 &1085202927051858392
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2635,17 +2639,16 @@ MonoBehaviour:
   enemyScript: {fileID: 0}
   muzFRev: {fileID: 1085202927256556865}
   muzAnim: {fileID: 1085202927256556870}
-  fov1: {fileID: 0}
-  aiDest: {fileID: 0}
   isReloading: 0
   magazineCur: 0
   shooting: {fileID: 8300000, guid: 73cb671c2a6489f42973543dfd909653, type: 3}
   noAmmo: {fileID: 8300000, guid: e547ba50407ff58428ff00c2079678ee, type: 3}
   reloading: {fileID: 8300000, guid: 2efe5cfe050704c4ba8d8b4767da6dca, type: 3}
   audioSource: {fileID: 1085202929010170286}
+  heardPlayer: 0
   possibleEnemiesWhoHeardMe: []
   temporaryGunObject: {fileID: 0}
-  range: 100
+  range: 0
 --- !u!82 &1085202929010170286
 AudioSource:
   m_ObjectHideFlags: 0
